@@ -7,7 +7,7 @@ Workshopen er **ikke ferdig enda**, men tar sikte på å ferdigstilles innen som
 ## Oppgaver
 Vi skal lage den neste SoMe-hypen: Bekkstagram! 
 
-Etter å ha fulgt oppsettsinstruksene under er det bare å gyve løs på oppgavene som du finner i /oppgaver-mappen.
+Etter å ha fulgt oppsettsinstruksene under er det bare å gyve løs på oppgavene som du finner i /oppgaver-mappen. Kildekoden til web-appen ligger i /bekkstagram.
 
 ## Oppsett
 
