@@ -9,7 +9,7 @@ Vi skal lage den neste SoMe-hypen: Bekkstagram!
 
 Hver oppgave har en lenke til en CodeSandbox der du kan implementere oppgaven. Oppgaven er løst når testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
-### React 101 - De grunnleggende byggesteinene!
+### Del 1: React 101 - De grunnleggende byggesteinene!
 
 #### Oppgave 1: Hei verden!
 La oss starte med basics. Få React til å skrive ut en `<h1 />`-tag med teksten "Bekkstagram" inni.
@@ -34,6 +34,22 @@ Det beste med komponenter er at man kan bruke dem gang på gang. I denne oppgave
 Husk at du trenger en unik `key` for hvert element i lista - ellers vet ikke React hvilket element som endrer seg!
 
 https://codesandbox.io/s/w0n3nr56ww
+
+### Del 2: Tilstand og sideeffekter
+
+#### TODO
+
+### Del 3: Avansert React
+
+#### TODO
+
+### Del 4: Bonusoppgaver
+
+Har du kommet deg helt hit er du åpenbart en kløpper i React allerede. Kjempebra jobba! 
+
+Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål
+
+#### TODO
 
 ## Løsningsforslag
 
