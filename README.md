@@ -7,7 +7,7 @@ Workshopen er **ikke ferdig enda**, men tar sikte på å ferdigstilles innen som
 ## Oppgaver
 Vi skal lage den neste SoMe-hypen: Bekkstagram! 
 
-Hver oppgave har en lenke til en CodeSandbox der du kan implementere oppgaven. Oppgaven er løst når testene under "Tests"-fanen blir grønne.
+Hver oppgave har en lenke til en CodeSandbox der du kan implementere oppgaven. Oppgaven er løst når testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
 ### Oppgave 1: Hei verden!
 La oss starte med basics. Få React til å skrive ut en `<h1 />`-tag med teksten "Bekkstagram" inni.
