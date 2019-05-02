@@ -40,6 +40,12 @@ På tide å gjøre innleggene våre litt mer innholdsrike. I denne oppgaven skal
 
 https://codesandbox.io/s/myxn92wm6x
 
+#### Oppgave 6: Vis ett og ett bilde
+Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
+
+Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
+
+https://codesandbox.io/s/l77qzql7z9
 
 ### Del 2: Tilstand og sideeffekter
 
