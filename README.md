@@ -35,6 +35,12 @@ Husk at du trenger en unik `key` for hvert element i lista - ellers vet ikke Rea
 
 https://codesandbox.io/s/w0n3nr56ww
 
+#### Oppgave 5: Sett sammen komponenter med children
+På tide å gjøre innleggene våre litt mer innholdsrike. I denne oppgaven skal vi lage tre nye komponenter, og sende inn data ved hjelp av en ny prop - `children`. 
+
+https://codesandbox.io/s/myxn92wm6x
+
+
 ### Del 2: Tilstand og sideeffekter
 
 #### TODO
