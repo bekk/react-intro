@@ -49,6 +49,11 @@ https://codesandbox.io/s/l77qzql7z9
 
 ### Del 2: Tilstand og sideeffekter
 
+#### Oppgave 7: Legg til likes som lokal state på hvert bilde
+La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere muligheten til å like et bilde. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å bruke hooks. 
+
+https://codesandbox.io/s/2xojz42rnn
+
 #### TODO
 
 ### Del 3: Avansert React
