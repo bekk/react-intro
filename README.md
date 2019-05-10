@@ -54,7 +54,10 @@ La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere mulig
 
 https://codesandbox.io/s/2xojz42rnn
 
-#### TODO
+#### Oppgave 8: Koble appen opp mot backend og lag noen endepunkter?
+Lag et enkelt endepunkt som henter antall likes for et bilde og oppdater state'en til en bildekomponent
+
+https://codesandbox.io/s/r6xqpwwwm
 
 ### Del 3: Avansert React
 
