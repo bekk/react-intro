@@ -50,14 +50,19 @@ https://codesandbox.io/s/l77qzql7z9
 ### Del 2: Tilstand og sideeffekter
 
 #### Oppgave 7: Legg til likes som lokal state på hvert bilde
-La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere muligheten til å like et bilde. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å bruke hooks. 
+La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å ta i bruk [hooks](https://reactjs.org/docs/hooks-state.html). 
 
 https://codesandbox.io/s/2xojz42rnn
 
-#### Oppgave 8: Koble appen opp mot backend og lag noen endepunkter?
-Lag et enkelt endepunkt som henter antall likes for et bilde og oppdater state'en til en bildekomponent
+#### Oppgave 8: Backend
+Koble appen opp mot backend. Lage api/noen endepunkter? Hente og vise bilder fra backend?
 
 https://codesandbox.io/s/r6xqpwwwm
+
+#### Oppgave 9: Sideeffekt - oppdater likes fra/til backend
+Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
+
+https://codesandbox.io/s/64m12olno3
 
 ### Del 3: Avansert React
 
