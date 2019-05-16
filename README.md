@@ -54,12 +54,36 @@ La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes
 
 https://codesandbox.io/s/8kryjnmk10
 
-#### Oppgave 8: Backend
+#### Oppgave 8: Sideeffekter
+
+I oppgave 8 skal vi fokusere på å utføre forskjellige side-effekter. Side-effekter er handlinger som påvirker noe utenfor "React-verdenen" - som å kalle DOM-APIer, hente data og så videre
+
+#### 8A: Oppdater tittel
+Når man går inn på et bilde burde man oppdatere tittelen til websiden (det som står oppe i fanen). Bruk hooken `useEffect` til å oppdatere den!
+
+https://codesandbox.io/s/oppgave-8-min-forste-sideeffekt-yom3rj5j9
+
+#### 8B: Oppdater tittel (del 2)
+Oppgave 8A innførte en liten bug - når man returnerer til feed-siden (hovedsiden) resetter man ikke tittelen! Det bør vi gjøre noe med. Refaktorer ut en funksjon som setter tittelen for deg, og kall den `useTitle`. Dette er hva man kaller en [custom hook](https://reactjs.org/docs/hooks-custom.html).
+
+Bruk din første custom hook både på `DetailsPage` og `FeedPage`.
+
+https://codesandbox.io/s/bygku
+
+#### 8C: Oppdater tittel (del 3)
+Custom Hooken vår ser fin ut - men den setter tittelen hver eneste gang vi rendrer siden vår. Det er kanskje ikke noe problem akkurat nå - men det kan det fort bli. Oppdater `useTitle` med et `dependency array` som andre argument. ([Her er dokumentasjonen](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects))
+
+https://codesandbox.io/s/oppgave-8c-dependency-arrays-rpsdg
+
+
+#### Oppgave 9: Hent data fra backenden
+Akkurat nå leser vi bare statisk data som vi har hardkodet inn i appen. La oss hente data fra APIet vårt!
+
 Koble appen opp mot backend. Lage api/noen endepunkter? Hente og vise bilder fra backend?
 
 https://codesandbox.io/s/r6xqpwwwm
 
-#### Oppgave 9: Sideeffekt - oppdater likes fra/til backend
+#### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
 
 https://codesandbox.io/s/64m12olno3
