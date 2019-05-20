@@ -81,7 +81,7 @@ Akkurat nå leser vi bare statisk data som vi har hardkodet inn i appen. La oss 
 
 Koble appen opp mot backend. Lage api/noen endepunkter? Hente og vise bilder fra backend?
 
-https://codesandbox.io/s/r6xqpwwwm
+https://codesandbox.io/s/oppgave-9-hente-data-fra-api-e9i9w
 
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
