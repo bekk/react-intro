@@ -96,7 +96,11 @@ https://codesandbox.io/s/oppgave-9-hente-data-fra-api-e9i9w
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
 
-https://codesandbox.io/s/64m12olno3
+#### Oppgave 11: Legg til kommentarer WIP
+Vis kommentarer under hvert bilde samt legge til funksjonalitet for å skrive en kommentar.
+Bendik: Prøvd å implementere kommentarer, wip:
+
+https://codesandbox.io/s/oppgave-8c-dependency-arrays-g9b68
 
 ### Del 3: Avansert React
 
