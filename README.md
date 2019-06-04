@@ -48,7 +48,7 @@ https://codesandbox.io/s/w0n3nr56ww
 #### Oppgave 5: Sett sammen komponenter med children
 På tide å gjøre innleggene våre litt mer innholdsrike. I denne oppgaven skal vi lage tre nye komponenter, og sende inn data ved hjelp av en ny prop - `children`. 
 
-https://codesandbox.io/s/myxn92wm6x
+https://codesandbox.io/s/oppgave-5-children-htdv0
 
 #### Oppgave 6: Vis ett og ett bilde
 Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
