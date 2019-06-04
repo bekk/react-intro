@@ -2,7 +2,13 @@
 
 Dette er en workshop for deg som vil lære React, eller som vil få en litt mer strukturert introduksjon til dette rammeverket.
 
-Workshopen er **ikke ferdig enda**, men tar sikte på å ferdigstilles innen sommeren 2019. 
+## Ressurser du kan lese
+
+Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du aldri har rørt React før, anbefaler vi at du tar en titt på noen av disse artiklene eller video-kursene. Vi går igjennom noen av disse konseptene i workshopen, men om du tar denne workshopen på egenhånd, eller ikke har mulighet til å være fysisk tilstede, så anbefaler vi at du blar deg gjennom disse tre ressursene:
+
+- [Main Concepts](https://reactjs.org/docs/hello-world.html)-delen av React-dokumentasjonen er en fantastisk innføring i de mest grunnleggende konseptene i React.
+- [React Tutorial For Beginners](https://egghead.io/courses/the-beginner-s-guide-to-react)-kurset til Kent C. Dodds er en fantastisk introduksjon til hvordan React fungerer, og forklarer hva React faktisk gjør på en veldig enkel og grei måte.
+- [Den offisielle tutorialen](https://reactjs.org/tutorial/tutorial.html) til React er også en veldig lærerik opplevelse. 
 
 ## Oppgaver
 Vi skal lage den neste SoMe-hypen: Bekkstagram! 
