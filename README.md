@@ -55,7 +55,7 @@ Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss.
 
 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
 
-https://codesandbox.io/s/l77qzql7z9
+https://codesandbox.io/s/oppgave-6-routing-f9x4l
 
 ### Del 2: Tilstand og sideeffekter
 
