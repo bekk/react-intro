@@ -11,9 +11,13 @@ Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du al
 - [Den offisielle tutorialen](https://reactjs.org/tutorial/tutorial.html) til React er også en veldig lærerik opplevelse. 
 
 ## Oppgaver
-Vi skal lage den neste SoMe-hypen: Bekkstagram! 
+I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
-Hver oppgave har en lenke til en CodeSandbox der du kan implementere oppgaven. Oppgaven er løst når testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
+Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave. 
+
+Hver oppgave har en lenke til en CodeSandbox der du kan implementere oppgaven rett i nettleseren. Oppgaven er løst når testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
+
+Trenger du hjelp, så er det bare å rekke opp hånda - eller om du gjør dette oppgavesettet utenfor en workshopsetting, skriv til [@selbekk](https://twitter.com/selbekk) på Twitter. Husk - ingen spørsmål er for enkle!
 
 ### Del 1: React 101 - De grunnleggende byggesteinene!
 
