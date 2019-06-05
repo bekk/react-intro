@@ -73,7 +73,7 @@ https://codesandbox.io/s/oppgave-6-routing-f9x4l
 #### Oppgave 7: Legg til likes som lokal state på hvert bilde
 La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å ta i bruk [hooks](https://reactjs.org/docs/hooks-state.html). 
 
-https://codesandbox.io/s/8kryjnmk10
+https://codesandbox.io/s/oppgave-7-statelikes-9o5qu
 
 #### Oppgave 8: Sideeffekter
 
