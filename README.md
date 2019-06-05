@@ -21,6 +21,47 @@ Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du al
 - [React Tutorial For Beginners](https://egghead.io/courses/the-beginner-s-guide-to-react)-kurset til Kent C. Dodds er en fantastisk introduksjon til hvordan React fungerer, og forklarer hva React faktisk gjør på en veldig enkel og grei måte.
 - [Den offisielle tutorialen](https://reactjs.org/tutorial/tutorial.html) til React er også en veldig lærerik opplevelse. 
 
+## React på 2 minutter
+
+React baserer seg på konseptet om at brukergrensesnittet ditt er en funksjon av data. Gitt litt data, så vil React gi deg tilbake det samme brukergrensesnittet. React kaller denne dataen `props` (en forkortelse for properties).
+
+Med andre ord: 
+
+```js
+brukergrensesnitt = f(props)
+```
+
+React baserer seg på at hver bit av brukergrensesnittet ditt er en funksjon. Denne funksjonen tar et objekt med data - `props` - som argument, og returnerer et brukergrensesnitt tilbake. I React kaller man denne typen funksjon for en **komponent**.
+
+En komponent kan se slik ut:
+
+```js
+function MinKomponent(props) {
+  return <h1>Hei verden</h1>
+}
+```
+, eller med en annen syntaks for å lage funksjoner:
+
+```js
+const MinKomponent = props => {
+  return <h1>Hei verden</h1>
+};
+```
+
+Synes du den HTML-lignende syntaksen er rar? Det er greit - den er litt rar. Den heter JSX, og er en type XML som React bruker for å beskrive brukergrensesnitt. Man bruker et verktøy som heter Babel til å gjøre det om til vanlig JavaScript. JSX er egentlig bare syntaktisk sukker for funksjonen `React.createElement`! Dette er samme komponent som over, i helt vanlig JavaScript:
+
+```js
+const MinKomponent = props => {
+  return React.createElement('h1', {}, 'Hei verden');
+};
+```
+
+Du kommer nok sjelden til å skrive kode som dette for hånd, da det å bruke JSX er å foretrekke i så godt som alle situasjoner. Men nå vet du i alle fall hva som egentlig skjer!
+
+Du kan (og bør) lese mer om JSX i [Reacts dokumentasjon](https://reactjs.org/docs/introducing-jsx.html).
+
+Det er i svært korte trekk det grunnleggende du trenger å vite om React. I løpet av oppgavene kommer du til å møte på mange flere konsepter, som tilstand (state), sideeffekter og kontekster - men nå vet du i alle fall litt om det mest grunnleggende!
+
 ## Oppgaver
 I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
