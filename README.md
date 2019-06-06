@@ -141,9 +141,11 @@ https://codesandbox.io/s/oppgave-8c-dependency-arrays-rpsdg
 #### Oppgave 9: Hent data fra backenden
 Akkurat nå leser vi bare statisk data som vi har hardkodet inn i appen. La oss hente data fra APIet vårt!
 
-Koble appen opp mot backend. Lage api/noen endepunkter? Hente og vise bilder fra backend?
+Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet er asynkront, det vil si at man må vente litt på å få svar. Du kan lese mer om hvordan du kan hente data med hooks i [denne artikkelen](https://itnext.io/how-to-create-react-custom-hooks-for-data-fetching-with-useeffect-74c5dc47000a).
 
-https://codesandbox.io/s/oppgave-9-hente-data-fra-api-e9i9w
+> Tips: Lag en custom hook `useFeed` som lagrer dataen vi henter i en `useState`, og henter data én gang i en `useEffect`
+
+https://codesandbox.io/s/oppgave-9-hente-data-fra-api-mc6op
 
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
