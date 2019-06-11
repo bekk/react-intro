@@ -135,7 +135,7 @@ https://codesandbox.io/s/bygku
 #### 8C: Oppdater tittel (del 3)
 Custom Hooken vår ser fin ut - men den setter tittelen hver eneste gang vi rendrer siden vår. Det er kanskje ikke noe problem akkurat nå - men det kan det fort bli. Oppdater `useTitle` med et `dependency array` som andre argument. ([Her er dokumentasjonen](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects))
 
-https://codesandbox.io/s/oppgave-8c-dependency-arrays-tkd11
+https://codesandbox.io/s/oppgave-8c-dependency-arrays-gxmou
 
 #### Oppgave 9: Hent data fra backenden
 Akkurat nå leser vi bare statisk data som vi har hardkodet inn i appen. La oss hente data fra APIet vårt!
