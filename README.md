@@ -144,7 +144,7 @@ Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet
 
 > Tips: Lag en custom hook `useFeed` som lagrer dataen vi henter i en `useState`, og henter data én gang i en `useEffect`
 
-https://codesandbox.io/s/oppgave-9-hente-data-fra-api-yokt0
+https://codesandbox.io/s/oppgave-9-hente-data-fra-api-jozwe
 
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
