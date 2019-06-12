@@ -153,7 +153,7 @@ Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene 
 Vis kommentarer under hvert bilde samt legge til funksjonalitet for å skrive en kommentar.
 Bendik: Prøvd å implementere kommentarer, wip:
 
-https://codesandbox.io/s/oppgave-8c-dependency-arrays-g9b68
+https://codesandbox.io/s/oppgave-11-kommentarfelt-pyr3p
 
 ### Del 3: Avansert React
 
