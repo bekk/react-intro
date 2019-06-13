@@ -149,10 +149,13 @@ https://codesandbox.io/s/oppgave-9-hente-data-fra-api-q9gxl
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
 
-#### Oppgave 11: Legg til kommentarer WIP
-Vis kommentarer under hvert bilde samt legg til funksjonalitet for å skrive en kommentar.
+#### Oppgave 11 a) Legg til kommentarer
+På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært!
 
-https://codesandbox.io/s/oppgave-11-kommentarfelt-pyr3p
+https://codesandbox.io/s/oppgave-11-kommentarfelt-qxuqu
+
+#### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
+Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
 
 #### Oppgave 12: Legg til støtte for å kunne legge til nye bilder
 
