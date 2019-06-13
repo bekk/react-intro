@@ -150,10 +150,13 @@ https://codesandbox.io/s/oppgave-9-hente-data-fra-api-q9gxl
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
 
 #### Oppgave 11: Legg til kommentarer WIP
-Vis kommentarer under hvert bilde samt legge til funksjonalitet for å skrive en kommentar.
-Bendik: Prøvd å implementere kommentarer, wip:
+Vis kommentarer under hvert bilde samt legg til funksjonalitet for å skrive en kommentar.
 
 https://codesandbox.io/s/oppgave-11-kommentarfelt-pyr3p
+
+#### Oppgave 12: Legg til støtte for å kunne legge til nye bilder
+
+https://codesandbox.io/s/oppgave-12-legge-til-bilder-tuzle
 
 ### Del 3: Avansert React
 
