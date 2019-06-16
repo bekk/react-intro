@@ -1,4 +1,4 @@
-# Introduksjon til React - en workshop
+# Introduksjon til React – en workshop
 
 Dette er en workshop for deg som vil lære React fra bunnen av. Workshopen består av et sett med oppgaver, med gode forklaringer etter hver oppgave.
 
