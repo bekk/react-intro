@@ -152,6 +152,8 @@ Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene 
 #### Oppgave 11 a) Legg til kommentarer
 På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
 
+> Tips til oppsett: En "container"-komponent `<Comments>` rendret under hvert bilde som går gjennom alle kommentarene til bildet og rendrer en `<Comment>` for hver kommentar og til slutt en `<CommentForm>`-komponent.
+
 https://codesandbox.io/s/oppgave-11-kommentarfelt-qxuqu
 
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
