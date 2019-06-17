@@ -150,8 +150,7 @@ https://codesandbox.io/s/oppgave-9-hente-data-fra-api-pg0qk
 Frem til nå har vi bare brukt en counter for å telle likes. Nå er det på tide å oppdatere likes komponenten, slik at den kan vite hvem som har liket osv. Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgave skal vi erstatt den gamle count likes som kun er tall, med nytt like-objekt. 
 
 > Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId);`
-
-https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-deb43
+https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-lnd6c
 
 #### Oppgave 11 a) Legg til kommentarer
 På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
