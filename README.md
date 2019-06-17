@@ -177,7 +177,11 @@ Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål. 
 
 Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) under hvert bilde.
 
-#### Bonusoppgave 2: Legg til støtte for å like en kommentar
+#### Bonusoppgave 2: Toggle likes
+
+Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
+
+#### Bonusoppgave 3: Legg til støtte for å like en kommentar
 
 Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
 
@@ -185,7 +189,7 @@ Key          | Value
 ------------ | ----------------------------
 username     | ola.nordmann
 
-#### Bonusoppgave 3: Legg til støtte for å publisere nye bilder
+#### Bonusoppgave 4: Legg til støtte for å publisere nye bilder
 
 APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
 
