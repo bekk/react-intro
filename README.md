@@ -166,11 +166,7 @@ Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
 
 https://codesandbox.io/s/oppgave-12-legge-til-bilder-tuzle
 
-### Del 3: Avansert React
-
-#### TODO
-
-### Del 4: Bonusoppgaver
+### Bonusoppgaver
 
 Har du kommet deg helt hit er du åpenbart en kløpper i React allerede. Kjempebra jobba! 
 
