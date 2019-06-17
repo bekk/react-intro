@@ -5,7 +5,7 @@ Dette er en workshop for deg som vil lære React fra bunnen av. Workshopen best�
 Når du har jobbet deg gjennom denne workshopen vil du ha en grunnleggende forståelse av hvordan React fungerer, og hvordan du kan lage webapper på null komma niks.
 
 > ## En workshop i moderne React
-> Denne workshopen fokuserer kun på moderne APIer som funksjonskomponenter og hooks. Vi går ikke igjennom klasser, livssyklus-metoder og `this`. Du vil mest sannsynlig treffe på disse på eksisterende prosjekter, men som helt ny React-utvikler mener vi at du burde fokusere på måten du kommer til å skrive React på - ikke hvordan det har blitt skrevet.
+> Denne workshopen fokuserer kun på moderne APIer som funksjonskomponenter og hooks. Vi går ikke igjennom klasser, livssyklus-metoder og `this`. Du vil mest sannsynlig treffe på disse i eksisterende prosjekter, men som helt ny React-utvikler mener vi at du burde fokusere på måten du kommer til å skrive React på - ikke hvordan det har blitt skrevet.
 
 ## Antatte forkunnskaper
 
@@ -15,7 +15,7 @@ Det er helt okei å ikke kunne alt dette før du begynner. Webutvikling er et st
 
 ## Ressurser du kan lese
 
-Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du aldri har rørt React før, anbefaler vi at du tar en titt på noen av disse artiklene eller video-kursene. Vi går igjennom noen av disse konseptene i workshopen, men om du tar denne workshopen på egenhånd, eller ikke har mulighet til å være fysisk tilstede, så anbefaler vi at du blar deg gjennom disse tre ressursene:
+Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du aldri har rørt React før, anbefaler vi at du tar en titt på noen av disse artiklene eller videokursene. Vi går igjennom noen av disse konseptene i workshopen, men om du tar denne workshopen på egenhånd, eller ikke har mulighet til å være fysisk tilstede, så anbefaler vi at du blar deg gjennom disse tre ressursene:
 
 - [Main Concepts](https://reactjs.org/docs/hello-world.html)-delen av React-dokumentasjonen er en fantastisk innføring i de mest grunnleggende konseptene i React.
 - [React Tutorial For Beginners](https://egghead.io/courses/the-beginner-s-guide-to-react)-kurset til Kent C. Dodds er en fantastisk introduksjon til hvordan React fungerer, og forklarer hva React faktisk gjør på en veldig enkel og grei måte.
@@ -67,14 +67,14 @@ I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
 Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave. 
 
-Hver oppgave har en lenke til en CodeSandbox der du kan implementere oppgaven rett i nettleseren. Oppgaven er løst når testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
+Hver oppgave har en lenke til en *CodeSandbox* der du kan implementere oppgaven rett i nettleseren. Fram til og med opggave 9 kan du se om du har løst oppaven ved å sjekke at testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
-Trenger du hjelp, så er det bare å rekke opp hånda - eller om du gjør dette oppgavesettet utenfor en workshopsetting, skriv til [@selbekk](https://twitter.com/selbekk) på Twitter. Husk - ingen spørsmål er for enkle!
+Trenger du hjelp, så er det bare å rekke opp hånda - eller om du gjør dette oppgavesettet utenfor en workshopsetting, skriv til [@selbekk](https://twitter.com/selbekk) på Twitter. Husk – ingen spørsmål er for enkle!
 
 ### Del 1: React 101 - De grunnleggende byggesteinene!
 
 #### Oppgave 1: Hei verden!
-La oss starte med basics. Få React til å skrive ut en `<h1 />`-tag med teksten "Bekkstagram" inni.
+La oss starte med litt basics. Få React til å skrive ut en `<h1 />`-tag med teksten "Bekkstagram" inni.
 
 https://codesandbox.io/s/64xvkjl7k3
 
@@ -91,7 +91,7 @@ Legg også på css-klassen `image` på `<img />`-taggen, så får den tilogmed r
 https://codesandbox.io/s/8njr15z4x8
 
 #### Oppgave 4: En liste med bilder
-Det beste med komponenter er at man kan bruke dem gang på gang. I denne oppgaven skal du loope ut en liste med bilder. Listen finner du i code-sandboxen.
+Det beste med komponenter er at man kan bruke dem gang på gang. I denne oppgaven skal du loope ut en liste med bilder. Listen finner du i CodeSandboxen.
 
 Husk at du trenger en unik `key` for hvert element i lista - ellers vet ikke React hvilket element som endrer seg!
 
