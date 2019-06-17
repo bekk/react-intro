@@ -157,7 +157,7 @@ På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet
 
 > Tips til oppsett: En "container"-komponent `<Comments>` rendret under hvert bilde som går gjennom alle kommentarene til bildet og rendrer en `<Comment>` for hver kommentar og til slutt en `<CommentForm>`-komponent.
 
-https://codesandbox.io/s/oppgave-11-kommentarfelt-uhz1r
+https://codesandbox.io/s/oppgave-11-legg-til-kommentarer-uhz1r
 
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
 Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
