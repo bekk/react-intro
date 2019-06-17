@@ -162,17 +162,27 @@ https://codesandbox.io/s/oppgave-11-legg-til-kommentarer-uhz1r
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
 Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
 
-#### Oppgave 12: Legg til støtte for å kunne legge til nye bilder
-
 https://codesandbox.io/s/oppgave-12-legge-til-bilder-c9bef
 
 ### Bonusoppgaver
 
 Har du kommet deg helt hit er du åpenbart en kløpper i React allerede. Kjempebra jobba! 
 
-Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål
+Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål. Bonusoppgavene kommer uten løsningsforslag – så bare spør om du skulle stå fast! Du kan fint fortsette i samme CodeSandbox som du brukte til Oppgave 11.
 
-#### TODO
+#### Bonusoppgave 1: Vis bildebeskrivelsen
+
+Du har kanskje lagt merke til at bildebeskrivelsen har 
+
+#### Bonusoppgave 2: Legg til støtte for å kunne publisere nye bilder
+
+APIet vårt har støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
+
+Key          | Value
+------------ | ----------------------------
+url          | https://bekk.no/image.png
+description  | Bildebeskrivelse
+
 
 ## Løsningsforslag
 
