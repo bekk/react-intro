@@ -172,11 +172,19 @@ Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål. 
 
 #### Bonusoppgave 1: Vis bildebeskrivelsen
 
-Du har kanskje lagt merke til at bildebeskrivelsen har 
+Du har kanskje lagt merke til at bildebeskrivelsen forsvant mellom Oppgave…
 
-#### Bonusoppgave 2: Legg til støtte for å kunne publisere nye bilder
+#### Bonusoppgave 2: Legg til støtte for å like en kommentar
 
-APIet vårt har støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
+Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
+
+Key          | Value
+------------ | ----------------------------
+username     | ola.nordmann
+
+#### Bonusoppgave 3: Legg til støtte for å publisere nye bilder
+
+APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
 
 Key          | Value
 ------------ | ----------------------------
