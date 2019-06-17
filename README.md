@@ -147,7 +147,7 @@ Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet
 https://codesandbox.io/s/oppgave-9-hente-data-fra-api-23p2j
 
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
-Bruk det nye endepunktet `putLikes()` for å oppdatere likes backend. 
+Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. 
 
 > Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId);`
 
