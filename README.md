@@ -164,7 +164,7 @@ Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
 
 #### Oppgave 12: Legg til støtte for å kunne legge til nye bilder
 
-https://codesandbox.io/s/oppgave-12-legge-til-bilder-tuzle
+https://codesandbox.io/s/oppgave-12-legge-til-bilder-c9bef
 
 ### Bonusoppgaver
 
