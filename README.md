@@ -160,9 +160,11 @@ På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet
 https://codesandbox.io/s/oppgave-11-legg-til-kommentarer-uhz1r
 
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
-Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
+Hvis du allerede ikke har implementert det: Det er fint å slippe å refreshe siden for at en ny kommentar skal dukke opp i kommentarfeltet. Fiks dette!
 
-https://codesandbox.io/s/oppgave-12-legge-til-bilder-c9bef
+> Tips: En funksjonskomponent blir rendret på nytt hvis staten endres. Prøv å legg til kommentarene som en state i `<Comments>` som oppdateres når man klikker på post-knappen i `<CommentForm>`. Funksjoner kan også bli sendt med som props.
+
+https://codesandbox.io/s/oppgave-11b-kommentarer-5nzbs
 
 ### Bonusoppgaver
 
