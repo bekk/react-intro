@@ -175,7 +175,7 @@ Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål. 
 
 #### Bonusoppgave 1: Vis bildebeskrivelsen
 
-Du har kanskje lagt merke til at bildebeskrivelsen forsvant mellom Oppgave…
+Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) under hvert bilde.
 
 #### Bonusoppgave 2: Legg til støtte for å like en kommentar
 
