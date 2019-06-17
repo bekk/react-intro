@@ -100,21 +100,21 @@ https://codesandbox.io/s/w0n3nr56ww
 #### Oppgave 5: Sett sammen komponenter med children
 På tide å gjøre innleggene våre litt mer innholdsrike. I denne oppgaven skal vi lage tre nye komponenter, og sende inn data ved hjelp av en ny prop - `children`. 
 
-https://codesandbox.io/s/oppgave-5-children-htdv0
+https://codesandbox.io/s/oppgave-5-children-6tses
 
 #### Oppgave 6: Vis ett og ett bilde
 Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
 
 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
 
-https://codesandbox.io/s/oppgave-6-routing-f9x4l
+https://codesandbox.io/s/oppgave-6-routing-7bmtd
 
 ### Del 2: Tilstand og sideeffekter
 
 #### Oppgave 7: Legg til likes som lokal state på hvert bilde
 La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å ta i bruk [hooks](https://reactjs.org/docs/hooks-state.html). 
 
-https://codesandbox.io/s/oppgave-7-statelikes-9o5qu
+https://codesandbox.io/s/oppgave-7-statelikes-cy91z
 
 #### Oppgave 8: Sideeffekter
 
@@ -123,14 +123,14 @@ I oppgave 8 skal vi fokusere på å utføre forskjellige side-effekter. Side-eff
 #### 8A: Oppdater tittel
 Når man går inn på et bilde burde man oppdatere tittelen til websiden (det som står oppe i fanen). Bruk hooken `useEffect` til å oppdatere den!
 
-https://codesandbox.io/s/oppgave-8-min-forste-sideeffekt-yom3rj5j9
+https://codesandbox.io/s/oppgave-8-min-forste-side-effekt-o5xlp
 
 #### 8B: Oppdater tittel (del 2)
 Oppgave 8A innførte en liten bug - når man returnerer til feed-siden (hovedsiden) resetter man ikke tittelen! Det bør vi gjøre noe med. Refaktorer ut en funksjon som setter tittelen for deg, og kall den `useTitle`. Dette er hva man kaller en [custom hook](https://reactjs.org/docs/hooks-custom.html).
 
 Bruk din første custom hook både på `DetailsPage` og `FeedPage`.
 
-https://codesandbox.io/s/bygku
+https://codesandbox.io/s/oppgave-8b-custom-hooks-379e8
 
 #### 8C: Oppdater tittel (del 3)
 Custom Hooken vår ser fin ut - men den setter tittelen hver eneste gang vi rendrer siden vår. Det er kanskje ikke noe problem akkurat nå - men det kan det fort bli. Oppdater `useTitle` med et `dependency array` som andre argument. ([Her er dokumentasjonen](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects))
@@ -144,20 +144,20 @@ Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet
 
 > Tips: Lag en custom hook `useFeed` som lagrer dataen vi henter i en `useState`, og henter data én gang i en `useEffect`
 
-https://codesandbox.io/s/oppgave-9-hente-data-fra-api-q9gxl
+https://codesandbox.io/s/oppgave-9-hente-data-fra-api-zwvmf
 
 #### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Lag et endepunkt for å hente likes til et bilde og oppdater staten til bildene hver gang de rendres ved å bruke sideeffekt-hooken `useEffect()` 
 
 ikke ferdig 
-https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-ktd5h 
+https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-133dw
 
 #### Oppgave 11 a) Legg til kommentarer
 På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
 
 > Tips til oppsett: En "container"-komponent `<Comments>` rendret under hvert bilde som går gjennom alle kommentarene til bildet og rendrer en `<Comment>` for hver kommentar og til slutt en `<CommentForm>`-komponent.
 
-https://codesandbox.io/s/oppgave-11-kommentarfelt-qxuqu
+https://codesandbox.io/s/oppgave-11-kommentarfelt-uhz1r
 
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
 Potensielt drite i denne i 3-timersen og heller implementere til 8-timers.
