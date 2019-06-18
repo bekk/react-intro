@@ -160,7 +160,7 @@ På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet
 https://codesandbox.io/s/oppgave-11a-legg-til-kommentarer-7b0wt
 
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
-Hvis du allerede ikke har implementert det: Det er fint å slippe å refreshe siden for at en ny kommentar skal dukke opp i kommentarfeltet. Fiks dette!
+Hvis du ikke allerede har implementert det: Det er fint å slippe å refreshe siden for at en ny kommentar skal dukke opp i kommentarfeltet. Fiks dette!
 
 > Tips: En funksjonskomponent blir rendret på nytt hvis staten endres. Prøv å legg til kommentarene som en state i `<Comments>` som oppdateres når man klikker på post-knappen i `<CommentForm>`. Funksjoner kan også bli sendt med som props.
 
