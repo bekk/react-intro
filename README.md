@@ -73,6 +73,10 @@ Hver oppgave har en lenke til en *CodeSandbox* der du kan implementere oppgaven 
 
 Trenger du hjelp, så er det bare å rekke opp hånda - eller om du gjør dette oppgavesettet utenfor en workshopsetting, skriv til [@selbekk](https://twitter.com/selbekk) på Twitter. Husk – ingen spørsmål er for enkle!
 
+### Løsningsforslag
+
+Står du fast? Løsningsforslag til hver oppgave ligger i hver CodeSandbox-link i filen `SOLUTION.md`. Her står det også litt nøyere beskrevet hva man skal gjøre og hvorfor. Det anbefales å ta en titt på hvert av disse når du er ferdig, om ikke annet bare for å få forklart at du hadde helt rett.
+
 ### Del 1: React 101 - De grunnleggende byggesteinene!
 
 #### Oppgave 1: Hei verden!
@@ -203,6 +207,3 @@ url          | https://bekk.no/image.png
 description  | Bildebeskrivelse
 
 
-## Løsningsforslag
-
-Står du fast? Løsningsforslag til hver oppgave ligger i hver CodeSandbox-link i filen `SOLUTION.md`. Her står det også litt nøyere beskrevet hva man skal gjøre og hvorfor. Det anbefales å ta en titt på hvert av disse når du er ferdig, om ikke annet bare for å få forklart at du hadde helt rett.
