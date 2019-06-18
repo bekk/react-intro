@@ -150,21 +150,21 @@ https://codesandbox.io/s/oppgave-9-hente-data-fra-api-pg0qk
 Frem til nå har vi bare brukt en counter for å telle likes. Nå er det på tide å oppdatere likes komponenten, slik at den kan vite hvem som har liket osv. Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgave skal vi erstatt den gamle count likes som kun er tall, med nytt like-objekt. 
 
 > Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId);`
-https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-lnd6c
+https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-k1ng5
 
 #### Oppgave 11 a) Legg til kommentarer
 På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
 
 > Tips til oppsett: En "container"-komponent `<Comments>` rendret under hvert bilde som går gjennom alle kommentarene til bildet og rendrer en `<Comment>` for hver kommentar og til slutt en `<CommentForm>`-komponent.
 
-https://codesandbox.io/s/oppgave-11a-legg-til-kommentarer-7b0wt
+https://codesandbox.io/s/oppgave-11a-legg-til-kommentarer-qs9yo
 
 #### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
 Hvis du ikke allerede har implementert det: Det er fint å slippe å refreshe siden for at en ny kommentar skal dukke opp i kommentarfeltet. Fiks dette!
 
 > Tips: En funksjonskomponent blir rendret på nytt hvis staten endres. Prøv å legg til kommentarene som en state i `<Comments>` som oppdateres når man klikker på post-knappen i `<CommentForm>`. Funksjoner kan også bli sendt med som props.
 
-https://codesandbox.io/s/oppgave-11b-kommentarer-5nzbs
+https://codesandbox.io/s/oppgave-11b-kommentarer-0wnve
 
 ### Bonusoppgaver
 
