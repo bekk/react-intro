@@ -67,7 +67,7 @@ I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
 Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave. 
 
-Hver oppgave har en lenke til en *CodeSandbox* der du kan implementere oppgaven rett i nettleseren. Fram til og med opggave 8 kan du se om du har løst oppaven ved å sjekke at testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
+Hver oppgave har en lenke til en *CodeSandbox* der du kan implementere oppgaven rett i nettleseren. Fram til og med opggave 8 kan du se om du har løst oppgave ved å sjekke at testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
 Trenger du hjelp, så er det bare å rekke opp hånda - eller om du gjør dette oppgavesettet utenfor en workshopsetting, skriv til [@selbekk](https://twitter.com/selbekk) på Twitter. Husk – ingen spørsmål er for enkle!
 
