@@ -150,6 +150,7 @@ https://codesandbox.io/s/oppgave-9-hente-data-fra-api-pg0qk
 Frem til nå har vi bare brukt en counter for å telle likes. Nå er det på tide å oppdatere likes komponenten, slik at den kan vite hvem som har liket osv. Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgave skal vi erstatt den gamle count likes som kun er tall, med nytt like-objekt. 
 
 > Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId);`
+
 https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-k1ng5
 
 #### Oppgave 11 a) Legg til kommentarer
