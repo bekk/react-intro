@@ -71,11 +71,17 @@ Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan l
 
 Hver oppgave har en lenke til en *CodeSandbox* der du kan implementere oppgaven rett i nettleseren. Fram til og med opggave 8 kan du se om du har løst oppgave ved å sjekke at testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
-Trenger du hjelp, så er det bare å rekke opp hånda - eller om du gjør dette oppgavesettet utenfor en workshopsetting, skriv til [@selbekk](https://twitter.com/selbekk) på Twitter. Husk – ingen spørsmål er for enkle!
+Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål er for enkle!
 
 ### Løsningsforslag
 
 Står du fast? Løsningsforslag til hver oppgave ligger i hver CodeSandbox-link i filen `SOLUTION.md`. Her står det også litt nøyere beskrevet hva man skal gjøre og hvorfor. Det anbefales å ta en titt på hvert av disse når du er ferdig, om ikke annet bare for å få forklart at du hadde helt rett.
+
+### Lokal utvikling
+
+Er du ikke fan av CodeSandbox? Da kan du laste ned prosjektet som zip-fil, kjøre `npm install` og `npm start`, og utvikle i din favoritteditor! Trykk "File" og "Export as ZIP", ekspander filen og naviger til mappen. Dette må gjøres for hver oppgave. 
+
+Du kan verifisere at oppgavene er gjort korrekt med `npm test`.
 
 ### Del 1: React 101 - De grunnleggende byggesteinene!
 
