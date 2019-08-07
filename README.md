@@ -200,12 +200,26 @@ Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) 
 
 https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-ejzj1
 
+### Oppgave 13: Legg til nye bilder
 
-### Bonusoppgave 2: Toggle likes
+ APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
+
+ Key          | Value
+------------ | ----------------------------
+url          | https://bekk.no/image.png
+description  | Bildebeskrivelse
+
+ https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
+
+## Bonusoppgaver
+
+Har du kommet helt hit, er vi virkelig imponert! Da har vi et par bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på. 🙌
+
+### Bonusoppgave 1: Toggle likes
 
 Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
 
-### Bonusoppgave 3: Legg til støtte for å like en kommentar
+### Bonusoppgave 2: Legg til støtte for å like en kommentar
 
 Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
 
@@ -213,13 +227,7 @@ Key          | Value
 ------------ | ----------------------------
 username     | ola.nordmann
 
-### Bonusoppgave 4: Legg til støtte for å publisere nye bilder
+### Oppgave X: Endre stilen
 
-APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
-
-Key          | Value
------------- | ----------------------------
-url          | https://bekk.no/image.png
-description  | Bildebeskrivelse
-
+https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
 
