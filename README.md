@@ -7,6 +7,8 @@ Når du har jobbet deg gjennom denne workshopen vil du ha en grunnleggende forst
 > ## En workshop i moderne React
 > Denne workshopen fokuserer kun på moderne APIer som funksjonskomponenter og hooks. Vi går ikke igjennom klasser, livssyklus-metoder og `this`. Du vil mest sannsynlig treffe på disse i eksisterende prosjekter, men som helt ny React-utvikler mener vi at du burde fokusere på måten du kommer til å skrive React på - ikke hvordan det har blitt skrevet.
 
+[Gå til oppgaver](#oppgaver)
+
 ## Antatte forkunnskaper
 
 Vi kommer til å anta at deltakerne i denne workshopen har en grunnleggende forståelse for webutvikling generelt, og moderne JavaScript spesielt. Om du føler at du trenger en oppfriskning til dette, har [@johhorn](https://github.com/johhorn) et al skrevet [en fantastisk introduksjonsbok om HTML, CSS og JavaScript](https://johhorn.gitbooks.io/web-intro/). Om du virkelig vil dykke dypt ned, så kan vi også anbefale [JavaScript.info](https://javascript.info/), en fantastisk guide til JavaScript.
@@ -64,7 +66,7 @@ Du kan (og bør) lese mer om JSX i [Reacts dokumentasjon](https://reactjs.org/do
 
 Det er i svært korte trekk det grunnleggende du trenger å vite om React. I løpet av oppgavene kommer du til å møte på mange flere konsepter, som tilstand (state), sideeffekter og kontekster - men nå vet du i alle fall litt om det mest grunnleggende!
 
-## Oppgaver
+# Oppgaver
 I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
 Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave. 
