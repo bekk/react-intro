@@ -7,7 +7,7 @@ Når du har jobbet deg gjennom denne workshopen vil du ha en god, grunnleggende 
 > ## En workshop i _moderne_ React
 > Denne workshopen fokuserer kun på moderne APIer som funksjonskomponenter og hooks. Vi går ikke igjennom klasser, livssyklus-metoder eller `this`. Du vil mest sannsynlig treffe på disse i eksisterende prosjekter, men som helt ny React-utvikler mener vi at du burde fokusere på måten du kommer til å skrive React på - ikke hvordan det har blitt skrevet.
 
-[🎉 Gå til oppgavene 🎉](#oppgaver)
+🎉 [Gå til oppgavene](#oppgaver) 🎉
 
 ## Antatte forkunnskaper
 
@@ -82,9 +82,13 @@ For å kunne løse hver oppgave i nettleseren, krever CodeSandbox at du må logg
 
 ## Lokal utvikling
 
-Er du ikke fan av CodeSandbox? Da kan du laste ned prosjektet som zip-fil, kjøre `npm install` og `npm start`, og utvikle i din favoritteditor! Trykk "File" og "Export as ZIP", ekspander filen og naviger til mappen. Dette må gjøres for hver oppgave. 
+Er du ikke fan av CodeSandbox? Da kan du laste ned prosjektet som zip-fil, kjøre `npm install` og `npm start`, og utvikle i din favoritteditor! Trykk "File" og "Export as ZIP", ekspander filen og naviger til mappen. Dette må gjøres for hver oppgave.
 
 Du kan verifisere at oppgavene er gjort korrekt med `npm test`.
+
+For å kjøre `npm` trenger du å ha `node` installert. Det installerer du fra [hjemmesiden deres](https://nodejs.org/en/). 
+
+Du kan bruke hvilken editor du vil. Vi anbefaler [Visual Studio Code](https://code.visualstudio.com), men [Sublime Text](https://www.sublimetext.com/) og [WebStorm](https://www.jetbrains.com/webstorm/) er også fantastiske alternativer. 
 
 # Oppgaver
 
