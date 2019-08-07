@@ -70,8 +70,6 @@ Dette er i svært korte trekk det grunnleggende du trenger å vite om React. I l
 
 Hver oppgave har en lenke til en **CodeSandbox** der du kan implementere oppgaven rett i nettleseren. Fram til og med oppgave 8 kan du se om du har løst oppgave ved å sjekke at testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
-Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål er for enkle!
-
 ## Løsningsforslag
 
 Står du fast? Løsningsforslag til hver oppgave ligger i hver CodeSandbox-link i filen `SOLUTION.md`. Her står det også litt nøyere beskrevet hva man skal gjøre og hvorfor. Det anbefales å ta en titt på hvert av disse når du er ferdig, om ikke annet bare for å få forklart at du hadde helt rett.
@@ -95,8 +93,6 @@ Du kan bruke hvilken editor du vil. Vi anbefaler [Visual Studio Code](https://co
 I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
 Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave. 
-
-Hver oppgave har en lenke til en **CodeSandbox** der du kan implementere oppgaven rett i nettleseren. Fram til og med oppgave 8 kan du se om du har løst oppgave ved å sjekke at testene under "Tests"-fanen blir grønne. Du kan også gå inn på filen "SOLUTION.md" i hver CodeSandbox for å få løsningen (om du skulle sitte fast).
 
 Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål er for enkle!
 
