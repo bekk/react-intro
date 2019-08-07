@@ -183,15 +183,11 @@ Hvis du ikke allerede har implementert det: Det er fint å slippe å refreshe si
 
 https://codesandbox.io/s/oppgave-11b-kommentarer-kqs66
 
-### Bonusoppgaver
-
-Har du kommet deg helt hit er du åpenbart en kløpper i React allerede. Kjempebra jobba! 
-
-Her har du et par ekstraoppgaver du kan bryne deg på om du kommer helt i mål. Bonusoppgavene kommer uten løsningsforslag – så bare spør om du skulle stå fast! Du kan fint fortsette i samme CodeSandbox som du brukte til Oppgave 11.
-
-#### Bonusoppgave 1: Vis bildebeskrivelsen
+#### Oppgave 12: Vis bildebeskrivelsen
 
 Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) under hvert bilde.
+
+https://codesandbox.io/s/oppgave-11b-kommentarer-ejzj1
 
 #### Bonusoppgave 2: Toggle likes
 
