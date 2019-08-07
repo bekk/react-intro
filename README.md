@@ -200,6 +200,10 @@ description  | Bildebeskrivelse
 
 https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
 
+### Oppgave X: Endre stilen
+
+https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
+
 #### Bonusoppgave 2: Toggle likes
 
 Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
