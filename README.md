@@ -200,7 +200,7 @@ description  | Bildebeskrivelse
 
 https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
 
-### Oppgave X: Endre stilen
+#### Oppgave X: Endre stilen
 
 https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
 
