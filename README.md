@@ -189,6 +189,16 @@ Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) 
 
 https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-ejzj1
 
+#### Oppgave 13: Legg til nye bilder
+
+APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
+
+Key          | Value
+------------ | ----------------------------
+url          | https://bekk.no/image.png
+description  | Bildebeskrivelse
+
+https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
 
 #### Bonusoppgave 2: Toggle likes
 
@@ -201,14 +211,3 @@ Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en k
 Key          | Value
 ------------ | ----------------------------
 username     | ola.nordmann
-
-#### Bonusoppgave 4: Legg til støtte for å publisere nye bilder
-
-APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
-
-Key          | Value
------------- | ----------------------------
-url          | https://bekk.no/image.png
-description  | Bildebeskrivelse
-
-
