@@ -208,6 +208,7 @@ https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-ejzj1
 ------------ | ----------------------------
 url          | https://bekk.no/image.png
 description  | Bildebeskrivelse
+username     | Olav Folkestad
 
  https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
 
