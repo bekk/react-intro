@@ -206,8 +206,8 @@ https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-ejzj1
 
  Key          | Value
 ------------ | ----------------------------
-url          | https://bekk.no/image.png
-description  | Bildebeskrivelse
+url          | https://res.cloudinary.com/bekkimg/w_768,h_1024,c_fill/d_default_image_departmentId4.png/26
+description  | Mr. Bossman
 username     | Olav Folkestad
 
  https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
