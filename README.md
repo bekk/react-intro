@@ -210,6 +210,8 @@ url          | https://res.cloudinary.com/bekkimg/w_768,h_1024,c_fill/d_default_
 description  | Mr. Bossman
 username     | Olav Folkestad
 
+Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden har en enkel validering på url'en og returnerer `undefined` samt sender en errormelding til consollen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
+
 #### Oppgave 13a)
 Legg til funksjonalitet for å legge til et bilde, for eksempel en knapp som åpner en modal/dialog hvor man kan skrive inn en bildeurl og bildebeskrivelse. 
 
@@ -221,8 +223,6 @@ Bruk linken under for å gjøre begge deloppgavene:
 https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
 
 #### Tips
-
-> Tips 0: Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden har en enkel validering på url'en og returnerer `undefined` samt sender en errormelding til consollen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
 
 > Tips 1: Importer et bildeikon av et kamera for å bruke som legg-til-bilde-knapp fra [react-icons](https://www.npmjs.com/package/react-icons), her et ikon fra [Font Awesome](https://fontawesome.com/icons?d=gallery&q=camera):
 
