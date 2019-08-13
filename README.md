@@ -215,7 +215,7 @@ username     | Olav Folkestad
 
 ### Oppgave 15: Legg til støtte for å like en kommentar
 
-Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
+Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Denne listen med likes kommer dessuten med når man henter et bilde med de eksisterende api-kallene (sjekk va du får i network i dev tools). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
 
 Key          | Value
 ------------ | ----------------------------
