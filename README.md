@@ -220,13 +220,15 @@ Har du kommet helt hit, er vi virkelig imponert! Da har vi et par bonusoppgaver 
 
 Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
 
-### Bonusoppgave 2: Legg til støtte for å like en kommentar
+### Oppgave 15: Legg til støtte for å like en kommentar
 
 Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
 
 Key          | Value
 ------------ | ----------------------------
 username     | ola.nordmann
+
+https://codesandbox.io/s/oppgave-14-likes-for-kommentarer-mklc9
 
 ### Oppgave X: Endre stilen
 
