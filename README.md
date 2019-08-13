@@ -212,13 +212,6 @@ username     | Olav Folkestad
 
  https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
 
-## Bonusoppgaver
-
-Har du kommet helt hit, er vi virkelig imponert! Da har vi et par bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på. 🙌
-
-### Bonusoppgave 1: Toggle likes
-
-Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
 
 ### Oppgave 15: Legg til støtte for å like en kommentar
 
@@ -229,6 +222,15 @@ Key          | Value
 username     | ola.nordmann
 
 https://codesandbox.io/s/oppgave-14-likes-for-kommentarer-mklc9
+
+
+## Bonusoppgaver
+
+Har du kommet helt hit, er vi virkelig imponert! Da har vi et par bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på. 🙌
+
+### Bonusoppgave 1: Toggle likes
+
+Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
 
 ### Oppgave X: Endre stilen
 
