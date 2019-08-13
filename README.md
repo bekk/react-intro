@@ -216,9 +216,11 @@ Legg til funksjonalitet for å legge til et bilde, for eksempel en knapp som åp
 #### Oppgave 13b)
 Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at det har blitt lagt til.
 
-Bruk linken under for å gjøre begge deloppgavene.
+Bruk linken under for å gjøre begge deloppgavene:
 
 https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
+
+#### Tips
 
 > Tips 0: Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden har en enkel validering på url'en og returnerer `undefined` samt sender en errormelding til consollen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
 
