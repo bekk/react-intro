@@ -202,7 +202,7 @@ https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-ejzj1
 
 ### Oppgave 13: Legg til nye bilder
 
- APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
+APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
 
  Key          | Value
 ------------ | ----------------------------
@@ -210,7 +210,32 @@ url          | https://res.cloudinary.com/bekkimg/w_768,h_1024,c_fill/d_default_
 description  | Mr. Bossman
 username     | Olav Folkestad
 
- https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
+#### Oppgave 13a)
+Legg til funksjonalitet for å legge til et bilde, for eksempel en knapp som åpner en modal/dialog hvor man kan skrive inn en bildeurl og bildebeskrivelse. 
+
+#### Oppgave 13b)
+Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at det har blitt lagt til.
+
+Bruk linken under for å gjøre begge deloppgavene.
+
+https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
+
+> Tips 0: Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden har en enkel validering på url'en og returnerer `undefined` samt sender en errormelding til consollen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
+
+> Tips 1: Importer et bildeikon av et kamera for å bruke som legg-til-bilde-knapp fra [react-icons](https://www.npmjs.com/package/react-icons), her et ikon fra [Font Awesome](https://fontawesome.com/icons?d=gallery&q=camera):
+
+```js
+import { FaCameraRetro } from "react-icons/fa";
+```
+
+> Tips 2: Importer <Dialog> med følgende kodelinjer for å få tilgang til Reach UI sin [Dialog-komponent](https://ui.reach.tech/dialog/):
+
+```js
+import { Dialog } from "@reach/dialog";
+import "@reach/dialog/styles.css";
+```
+
+ 
 
 
 ### Oppgave 15: Legg til støtte for å like en kommentar
