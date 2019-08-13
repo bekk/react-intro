@@ -221,7 +221,7 @@ Key          | Value
 ------------ | ----------------------------
 username     | ola.nordmann
 
-https://codesandbox.io/s/oppgave-14-likes-for-kommentarer-mklc9
+https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-mklc9
 
 
 ## Bonusoppgaver
