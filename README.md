@@ -210,7 +210,7 @@ url          | https://res.cloudinary.com/bekkimg/w_768,h_1024,c_fill/d_default_
 description  | Mr. Bossman
 username     | Olav Folkestad
 
-Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden har en enkel validering på url'en og returnerer `undefined` samt sender en errormelding til consollen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
+Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden sjekker at bilde-URLen er gyldig og returnerer `undefined` samt sender en errormelding til consolen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
 
 #### Oppgave 13a)
 Legg til funksjonalitet for å legge til et bilde, for eksempel en knapp som åpner en modal/dialog hvor man kan skrive inn en bildeurl og bildebeskrivelse. 
@@ -220,7 +220,7 @@ Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at
 
 Bruk linken under for å gjøre begge deloppgavene:
 
-https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-cw6l9
+https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-wcv0k
 
 #### Tips
 
