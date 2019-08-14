@@ -237,7 +237,9 @@ import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 ```
 
- 
+ ### Oppgave 14: Toggle likes
+
+Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
 
 
 ### Oppgave 15: Legg til støtte for å like en kommentar
@@ -250,14 +252,13 @@ username     | ola.nordmann
 
 https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-mklc9
 
+### Oppgave 16: Endre stilen
+
+https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
 
 ## Bonusoppgaver
 
-Har du kommet helt hit, er vi virkelig imponert! Da har vi et par bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på. 🙌
-
-### Bonusoppgave 1: Toggle likes
-
-Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
+Har du kommet helt hit, er vi virkelig imponert! Da har vi noen bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på 🙌 Merk at bonusoppgavene ikke trengs å gjøres i rekkefølge, her kan du bare plukke det som virker mest interessant. Helt til sist er en oppgave som er helt uavhengig av det vi har gjort til nå, hvis du har gått lei av å knote med Bekkstagram! 😁
 
 ### Bonusoppgave: Søkefelt
 
@@ -271,13 +272,10 @@ Her kan du for eksempel endre koden for visning av bildebeskrivelser så ord som
 
 Brukernavnet til personen som lastet opp et bilde kan gjøres klikkbart, og om du klikker på det kan du f.eks. tas til en feed som kun viser bilder lagt ut av den personen. Her kan du også inkludere en egen liste under/over/ved siden av feeden av kommentarene som brukeren har lagt inn under andre bilder.
 
-### "Paginering"
+### Bonusoppgave: "Paginering"
 
 Etterhvert som bildefeeden består av flere og flere bilder vil appen bruke lengre og lengre tid på å rendre alt, men dette kan løses med noe som heter paginering! Paginering her vil basically si å kun vise et begrenset antall bilder av gangen, og rendre flere bilder når man gjør en eller annen handling. Det kan være å ha sidetall i toppen av feeden og rendre f eks de 10 første på sidetall 1, de 10 neste på sidetall 2 osv. Mer passende kanskje i denne appen vil være å rendre flere bilder etterhvert som man scroller nedover ("rendre 10+x bilder, hvor x økes med 10 hver gang man scroller til bunns").
 
 > Tips: [Denne artikkelen](https://upmostly.com/tutorials/build-an-infinite-scroll-component-in-react-using-react-hooks) beskriver hvordan man kan detektere at man har scrollet til bunns og hente nye data når det skjer. Merk: Api'et vårt støtter ikke å kunne fetche kun et visst antall bilder fra backenden. Man må derfor uansett fetche alle bildene først som før, men hvor mange bilder som rendres kan man styre med dette.
 
-### Oppgave X: Endre stilen
-
-https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
-
+### Bekkstagram-uavhengig bonusoppgave: 
