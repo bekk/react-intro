@@ -259,6 +259,18 @@ Har du kommet helt hit, er vi virkelig imponert! Da har vi et par bonusoppgaver 
 
 Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔
 
+### Bonusoppgave: Søkefelt
+
+Implementer et søkefelt på start/feed-siden, som du kan bruke til å filtrere feeden. for eksempel du kunne søke på "fjell", og kun få bilder med teksten "fjell" i description-feltet.
+
+### Bonusoppgave: Hashtags
+
+Her kan du for eksempel endre koden for visning av bildebeskrivelser så ord som starter på "#" blir mulig å trykke på. Når man trykker på en hashtag kan man sendes til en egen feed som kun viser bilder som har den hashtagen i beskrivelsen (eller også i kommentarene under?). 
+
+### Bonusoppgave: Brukerspesifikk feed
+
+Brukernavnet til personen som lastet opp et bilde kan gjøres klikkbart, og om du klikker på det kan du f.eks. tas til en feed som kun viser bilder lagt ut av den personen. Her kan du også inkludere en egen liste under/over/ved siden av feeden av kommentarene som brukeren ar lagt inn under andre bilder.
+
 ### Oppgave X: Endre stilen
 
 https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
