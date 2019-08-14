@@ -261,7 +261,7 @@ Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang,
 
 ### Bonusoppgave: Søkefelt
 
-Implementer et søkefelt på start/feed-siden, som du kan bruke til å filtrere feeden. for eksempel du kunne søke på "fjell", og kun få bilder med teksten "fjell" i description-feltet.
+Implementer et søkefelt på start/feed-siden, som du kan bruke til å filtrere feeden. For eksempel å kunne søke på "fjell", og kun få bilder med teksten "fjell" i description-feltet.
 
 ### Bonusoppgave: Hashtags
 
@@ -269,7 +269,11 @@ Her kan du for eksempel endre koden for visning av bildebeskrivelser så ord som
 
 ### Bonusoppgave: Brukerspesifikk feed
 
-Brukernavnet til personen som lastet opp et bilde kan gjøres klikkbart, og om du klikker på det kan du f.eks. tas til en feed som kun viser bilder lagt ut av den personen. Her kan du også inkludere en egen liste under/over/ved siden av feeden av kommentarene som brukeren ar lagt inn under andre bilder.
+Brukernavnet til personen som lastet opp et bilde kan gjøres klikkbart, og om du klikker på det kan du f.eks. tas til en feed som kun viser bilder lagt ut av den personen. Her kan du også inkludere en egen liste under/over/ved siden av feeden av kommentarene som brukeren har lagt inn under andre bilder.
+
+### "Paginering"
+
+Etterhvert som bildefeeden består av flere og flere bilder vil appen bruke lengre og lengre tid på å rendre alt, men dette kan løses med noe som heter paginering! Paginering her vil basically si å kun vise et begrenset antall bilder av gangen, og rendre flere bilder når man gjør en eller annen handling. Det kan være å ha sidetall i toppen av feeden og rendre f eks de 10 første på sidetall 1, de 10 neste på sidetall 2 osv. Mer passende kanskje i denne appen vil være å rendre flere bilder etterhvert som man scroller nedover ("rendre 10+x bilder, hvor x økes med 10 hver gang man scroller til bunns").
 
 ### Oppgave X: Endre stilen
 
