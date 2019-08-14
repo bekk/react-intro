@@ -258,7 +258,9 @@ https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
 
 ## Bonusoppgaver
 
-Har du kommet helt hit, er vi virkelig imponert! Da har vi noen bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på 🙌 Merk at bonusoppgavene ikke trengs å gjøres i rekkefølge, her kan du bare plukke det som virker mest interessant. Helt til sist er en oppgave som er helt uavhengig av det vi har gjort til nå, hvis du har gått lei av å knote med Bekkstagram! 😁
+Har du kommet helt hit, er vi virkelig imponert! Da har vi noen bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Her får du ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på 🙌 
+
+Merk at bonusoppgavene ikke trengs å gjøres i rekkefølge, her kan du bare plukke det som virker mest interessant. Helt til sist er en oppgave som er helt uavhengig av det vi har gjort til nå, hvis du har gått lei av å knote med Bekkstagram! 😁
 
 ### Bonusoppgave: Søkefelt
 
