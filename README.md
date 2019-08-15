@@ -171,14 +171,16 @@ Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet
 
 https://codesandbox.io/s/oppgave-9-hente-data-fra-api-p74nr
 
-**Merk: Herfra og utover trenger du ikke tenke på å få testene grønne (fordi de resterende oppgavene ikke har tester).**
-
 ### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
-Frem til nå har vi bare brukt en counter for å telle likes. Nå er det på tide å oppdatere likes komponenten, slik at den kan vite hvem som har liket osv. Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgave skal vi erstatt den gamle count likes som kun er tall, med nytt like-objekt. 
+Frem til nå har vi bare brukt en lokal statevariabel for å telle likes. Nå er det på tide å oppdatere likes-komponenten, slik at den kan vite hvem som har liket, og persistere alle likes til serveren! Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgaven skal vi erstatte den gamle likes-funksjonaliteten som kun er tall, med nye like-objekter. 
 
-> Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId);`
+I denne oppgaven vil du bli bedt om å oppgi et brukernavn når du går inn på appen. Det er for å gi deg en slags brukerkonto underveis.
 
-https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-k1ng5
+> Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId, username);`
+
+https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-dl5u8
+
+**Merk: Herfra og utover trenger du ikke tenke på å få testene grønne (fordi de resterende oppgavene ikke har tester).**
 
 ### Oppgave 11 a) Legg til kommentarer
 På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
