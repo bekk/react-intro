@@ -169,7 +169,7 @@ Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet
 
 > Tips: Lag en custom hook `useFeed` som lagrer dataen vi henter i en `useState`, og henter data én gang i en `useEffect`
 
-https://codesandbox.io/s/oppgave-9-hente-data-fra-api-9mgvu
+https://codesandbox.io/s/oppgave-9-hente-data-fra-api-p74nr
 
 **Merk: Herfra og utover trenger du ikke tenke på å få testene grønne (fordi de resterende oppgavene ikke har tester).**
 
