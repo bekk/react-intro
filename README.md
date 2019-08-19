@@ -174,7 +174,7 @@ Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet
 
 > Tips: Lag en custom hook `useFeed` som lagrer dataen vi henter i en `useState`, og henter data én gang i en `useEffect`
 
-https://codesandbox.io/s/oppgave-9-hente-data-fra-api-p74nr
+https://codesandbox.io/s/oppgave-9-hente-data-fra-api-9ze3b
 
 ### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 Frem til nå har vi bare brukt en lokal statevariabel for å telle likes. Nå er det på tide å oppdatere likes-komponenten, slik at den kan vite hvem som har liket, og persistere alle likes til serveren! Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgaven skal vi erstatte den gamle likes-funksjonaliteten som kun er tall, med nye like-objekter. 
