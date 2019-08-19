@@ -205,7 +205,7 @@ https://codesandbox.io/s/oppgave-11b-kommentarer-kqs66
 
 Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) under hvert bilde.
 
-https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-ejzj1
+https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-9meuq
 
 ### Oppgave 13: Legg til nye bilder
 
