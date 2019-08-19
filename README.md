@@ -183,7 +183,7 @@ I denne oppgaven vil du bli bedt om å oppgi et brukernavn når du går inn på 
 
 > Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId, username);`
 
-https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-dl5u8
+https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-kggcn
 
 **Merk: Herfra og utover trenger du ikke tenke på å få testene grønne (fordi de resterende oppgavene ikke har tester).**
 
