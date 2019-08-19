@@ -205,7 +205,7 @@ https://codesandbox.io/s/oppgave-11b-kommentarer-kqs66
 
 Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) under hvert bilde.
 
-https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-9meuq
+https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-s8btp
 
 ### Oppgave 13: Legg til nye bilder
 
@@ -219,15 +219,15 @@ username     | Olav Folkestad
 
 Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden sjekker at bilde-URLen er gyldig og returnerer `undefined` samt sender en errormelding til consolen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend. 
 
-#### Oppgave 13a)
+#### Oppgave 13 a)
 Legg til funksjonalitet for å legge til et bilde, for eksempel en knapp som åpner en modal/dialog hvor man kan skrive inn en bildeurl og bildebeskrivelse. 
 
-#### Oppgave 13b)
+#### Oppgave 13 b)
 Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at det har blitt lagt til.
 
 Bruk linken under for å gjøre begge deloppgavene:
 
-https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-wcv0k
+https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-2f9m9
 
 #### Tips
 
@@ -250,8 +250,7 @@ Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang,
 
 Vi har allerede laget en funksjon deleteLikes() for dere som tar inn imageId. Som dere kan bruke når dere skal slette en like.
 
-https://codesandbox.io/s/oppgave-14-toggle-likes-xzu0g
-
+https://codesandbox.io/s/oppgave-14-toggle-likes-ew58h
 
 ### Oppgave 15: Legg til støtte for å like en kommentar
 
@@ -263,7 +262,7 @@ username     | ola.nordmann
 
 Vi ar allerede implementert en funksjon i api.js for dere, putCommentLike(imageId, commentId), som kan brukes i løsningen av oppgaven.
 
-https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-9bdwy
+https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-3ccib
 
 ## Bonusoppgaver
 
