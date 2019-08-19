@@ -134,6 +134,11 @@ Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttra
 
 https://codesandbox.io/s/oppgave-6-routing-7bmtd
 
+### Bonus: Skift utseende
+
+
+https://codesandbox.io/s/theming-52rzv
+
 ## Del 2: Tilstand og sideeffekter
 
 ### Oppgave 7: Legg til likes som lokal state på hvert bilde
@@ -194,7 +199,7 @@ Hvis du ikke allerede har implementert det: Det er fint å slippe å refreshe si
 
 > Tips: En funksjonskomponent blir rendret på nytt hvis staten endres. Prøv å legg til kommentarene som en state i `<Comments>` som oppdateres når man klikker på post-knappen i `<CommentForm>`. Funksjoner kan også bli sendt med som props.
 
-https://codesandbox.io/s/oppgave-11b-kommentarer-7qyfw
+https://codesandbox.io/s/oppgave-11b-kommentarer-kqs66
 
 ### Oppgave 12: Vis bildebeskrivelsen
 
@@ -255,10 +260,6 @@ username     | ola.nordmann
 Vi ar allerede implementert en funksjon i api.js for dere, putCommentLike(imageId, commentId), som kan brukes i løsningen av oppgaven.
 
 https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-g6kx7
-
-### Oppgave 16: Endre stilen
-
-https://codesandbox.io/s/oppgave-x-endre-stilen-6lcp1
 
 ## Bonusoppgaver
 
