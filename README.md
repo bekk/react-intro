@@ -194,7 +194,7 @@ Hvis du ikke allerede har implementert det: Det er fint å slippe å refreshe si
 
 > Tips: En funksjonskomponent blir rendret på nytt hvis staten endres. Prøv å legg til kommentarene som en state i `<Comments>` som oppdateres når man klikker på post-knappen i `<CommentForm>`. Funksjoner kan også bli sendt med som props.
 
-https://codesandbox.io/s/oppgave-11b-kommentarer-kqs66
+https://codesandbox.io/s/oppgave-11b-kommentarer-7qyfw
 
 ### Oppgave 12: Vis bildebeskrivelsen
 
