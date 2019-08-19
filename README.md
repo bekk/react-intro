@@ -135,7 +135,7 @@ Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttra
 https://codesandbox.io/s/oppgave-6-routing-7bmtd
 
 ### Bonus: Skift utseende
-Hadde det ikke vært kult å kunne bytte utseende på Bekkstagram? Flaks for deg: dette har vi allerede lagt til rette for! Fra og med oppgave 6 kan du bruke metodene i `theme-util.js` til å sette et predefinert tema – eller bare lage ditt eget.
+Hadde det ikke vært kult å kunne bytte utseende på Bekkstagram? Flaks for deg: dette har vi allerede lagt til rette for! Fra og med oppgave 6 kan du bruke metodene i `theme-util.js` til å sette et predefinert tema – eller bare lage ditt eget. 🌈
 
 ## Del 2: Tilstand og sideeffekter
 
