@@ -263,7 +263,7 @@ username     | ola.nordmann
 
 Vi ar allerede implementert en funksjon i api.js for dere, putCommentLike(imageId, commentId), som kan brukes i løsningen av oppgaven.
 
-https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-g6kx7
+https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-9bdwy
 
 ## Bonusoppgaver
 
