@@ -248,7 +248,7 @@ Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang,
 
 Vi har allerede laget en funksjon deleteLikes() for dere som tar inn imageId. Som dere kan bruke når dere skal slette en like.
 
-https://codesandbox.io/s/oppgave-14-toggle-likes-397xj
+https://codesandbox.io/s/oppgave-14-toggle-likes-oi2s4
 
 ### Oppgave 15: Legg til støtte for å like en kommentar
 
@@ -260,7 +260,7 @@ username     | ola.nordmann
 
 Vi ar allerede implementert en funksjon i api.js for dere, putCommentLike(imageId, commentId), som kan brukes i løsningen av oppgaven.
 
-https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-1xncv
+https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-0tyij
 
 ## Bonusoppgaver
 
