@@ -290,4 +290,9 @@ Etterhvert som bildefeeden består av flere og flere bilder vil appen bruke leng
 
 > Tips: [Denne artikkelen](https://upmostly.com/tutorials/build-an-infinite-scroll-component-in-react-using-react-hooks) beskriver hvordan man kan detektere at man har scrollet til bunns og hente nye data når det skjer. Merk: Api'et vårt støtter ikke å kunne fetche kun et visst antall bilder fra backenden. Man må derfor uansett fetche alle bildene først som før, men hvor mange bilder som rendres kan man styre med dette.
 
-### Bekkstagram-uavhengig bonusoppgave: 
+### Bekkstagram-uavhengig bonusoppgave: TODO-app
+
+Lag din egen TODO-app fra scratch! Typiske ting en vanlig TODO-app burde kunne gjøre: 
+- Legge til TODOs
+- Krysse av og markere en TODO som gjort
+- Filtrere på ugjorte TODOs
