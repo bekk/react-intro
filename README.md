@@ -414,11 +414,125 @@ Til sammen har vi nå en app med to "sider". En feed-side, som egentlig bare er 
 
 ## Del 2: Tilstand og sideeffekter
 
+Mye av det vi har gjort til nå kunne vi fått til med et vanlig template-rammeverk. Ingenting endrer seg jo! Heldigvis er det nettopp her React skinner.
+
+React har innebygget funksjonalitet for å huske på tilstand, fyre av side-effekter og masse annet. Denne funksjonaliteten kalles for "hooks".
+
+Du kan lese om hooks [her](https://reactjs.org/docs/hooks-intro.html), og finne et oppslagsverk [her](https://reactjs.org/docs/hooks-reference.html). Du trenger ikke lese gjennom det nå, men ha det gjerne tilgjengelig mens du løser oppgavene i del 2.
+
+> 💡 Synes du App.js-filen din begynner å bli litt lang? Nå kan det være en god ide å refaktorere den ut i flere forskjellige filer. Man kan plassere en komponent i en fil, eller ha flere relaterte i samme fil - eller bare ha alt i en eneste fil også. Her er det dessverre ingen gale svar - finn den strukturen som fungerer for deg!
+
 ### Oppgave 7: Legg til likes som lokal state på hvert bilde
 
-La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å ta i bruk [hooks](https://reactjs.org/docs/hooks-state.html).
+La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes. Antall likes et bilde har kan ses på som en tilstand, og dette er en perfekt anledning til å ta i bruk hooken `useState`.
 
-https://codesandbox.io/s/oppgave-7-statelikes-cy91z
+🏆 Bruk hooken `React.useState` til å holde styr på antall likes en post har fått. Den burde starte på 0.
+
+> 💡 Synes du syntaksen `const [enTing, enAnnenTing] = React.useState()` er litt rar? Dette kalles array-destrukturering, og det kan du lese mer om i [denne artikkelen](https://dev.to/sarah_chima/destructuring-assignment---arrays-16f). Kort forklart henter det ut de to første elementene i et array, og lagrer dem som konstanter med egne navn.
+
+🏆 Lag en knapp som har en "👍" inni seg, og gi den klassen "like-button".
+
+> 💡 Send gjerne inn propen `aria-label` med en beskrivelse av hva knappen gjør også - da er det lettere for svaksynte å bruke appen din!
+
+🏆 Når man trykker på knappen bør man oppdatere antall likes.
+
+> 💡 Du kan sende inn en funksjon til propen `onClick` som kjøres hver gang noen klikker på knappen.
+
+> 💡 Når man sender inn en funksjon, så må man huske på å _ikke_ kalle den med en gang! Med andre ord - istedenfor å skrive `onClick={handleClick()}`, så skriver du `onClick={handleClick}`.
+
+> 💡 `React.useState` kan enten motta en vanlig verdi eller en funksjon. Hvis du sender inn en funksjon, vil funksjonen bli kalt med "nåværende tilstand", og returnerer du bare "neste tilstand". Dette er perfekt for når neste tilstand baserer seg på forrige tilstand - som i denne oppgaven.
+
+<details><summary>🚨 Løsningsforslag</summary>
+
+I oppgave 7 skulle vi implementere å like bilder.
+
+Vi starter med å lage en ny komponent - `<Likes />`:
+
+```js
+function Likes(props) {
+  return <div className="likes" />;
+}
+```
+
+Neste steg er å begynne å bruke den i `<Post />`-komponenten vår også:
+
+```js
+export default function Post(props) {
+  return (
+    <div className="post">
+      <Author>{props.author}</Author>
+      {props.children}
+      <div className="post-details">
+        <Timestamp timestamp={props.timestamp} />
+        <Likes /> {/* ⬅️ her!*/}
+      </div>
+    </div>
+  );
+}
+```
+
+Siden vi nå skal innføre en tilstand (state) i appen vår, trenger vi å bruke hooken `React.useState`. Denne funksjonen tar i mot et argument, som er den initielle verdien. Den returnerer et array, hvor første element er verdien (tilstanden), og andre element er en funksjon som oppdaterer verdien. Man kan bruke en teknikk som heter destrukturering til å lage to variabler av disse.
+
+```js
+function Likes(props) {
+  const [likes, setLikes] = React.setState(0);
+  return <div className="likes" />;
+}
+```
+
+Du kan også skrive det på denne måten om du vil:
+
+```js
+const state = React.setState(0);
+const likes = state[0];
+const setLikes = state[1];
+```
+
+(men ikke gjør det - det er ikke like lett å lese).
+
+Neste steg er å vise antall likes:
+
+```js
+function Likes(props) {
+  const [likes, setLikes] = React.useState(0);
+  return <div className="likes">Likes: {likes}</div>;
+}
+```
+
+Dette får den første testen vår til å kjøre. Når vi ser på websiden, ser vi at det står "Likes: 0"
+
+Del to av oppgaven består i å lage en knapp man kan trykke på, og som legger til en til antall likes.
+
+```js
+function Likes(props) {
+  const [likes, setLikes] = React.useState(0);
+  function incrementLikes() {
+    setLikes(likes + 1);
+  }
+  return (
+    <div className="likes">
+      Likes: {likes}{' '}
+      <button className="like-button" onClick={incrementLikes}>
+        💛
+      </button>
+    </div>
+  );
+}
+```
+
+Vi lager først en ny funksjon `incrementLikes`, som kaller `setLikes`-funksjonen med antall likes + 1. Du kan også sende inn en funksjon som tar imot nåværende verdi, og som returnerer oppdatert verdi:
+
+```js
+function incrementLikes() {
+  setLikes(currentLikes => currentLikes + 1);
+}
+```
+
+Man bør bruke sistnevnte om den nye verdien avhenger av den gamle verdien - for å garantere at ikke noe annet oppdaterer antall likes i mellomtiden.
+
+Det var det! Vi kan nå like bildene våre! Om det bare var en måte å la serveren vår huske det på...
+
+</details>
 
 ### Oppgave 8: Sideeffekter
 
