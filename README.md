@@ -76,13 +76,18 @@ Hvis du vil gjøre oppgavene lokalt, kan du åpne terminalen din, laste ned repo
 
 > ## ⚠️ Husk! Installer node og git
 >
-> Hvis du vil løse oppgavene lokalt, kreves det at du har `node` installert. Hvis du ikke har det, kan du laste det ned fra [nodejs.org](https://nodejs.org). Du trenger også `git`, som du kan laste ned [herifra](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+> Hvis du vil løse oppgavene lokalt, kreves det at du har `node` installert. Hvis du ikke har det, kan du laste det ned fra [nodejs.org](https://nodejs.org).
+> Du trenger også `git`, som du kan laste ned [herifra](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 Hvis du vil løse oppgavene i nettleseren, kan du gjøre det også. Gå inn på [denne CodeSandbox-lenken](https://codesandbox.io/s/github/bekk/react-intro), så får du opp en editor med live-preview og alt du trenger rett i nettleseren.
 
-## Løsningsforslag
+## Emoji-guide
 
-Står du fast? Du finner et løsningsforslag til hver oppgave under hver av oppgaven ved å trykke på "🚨Løsningsforslag". Her står det også litt nøyere beskrevet hva man skal gjøre og hvorfor. Det anbefales å ta en titt på hvert av disse når du er ferdig, om ikke annet bare for å få forklart at du hadde helt rett.
+Du kommer til å se noen emojis i oppgavene. De betyr ca det her:
+
+- 🏆Oppgave: Her er hva du skal gjøre
+- 💡Tips: Litt ekstra info som kan være greit å være for å løse en oppgave
+- 🚨Løsningsforslag: Her finner du en komplett gjennomgang av hvordan du _kan_ løse oppgaven
 
 # Oppgaver
 
@@ -96,7 +101,9 @@ Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål
 
 ### Oppgave 1: Hei verden!
 
-La oss starte med litt basics. Få React til å skrive ut en `<h1 />`-tag med teksten "Bekkstagram" inni.
+La oss starte litt enkelt, med å få appen vår til å skrive ut noe som helst. Gå inn i `src/App.js`, og se hva som er der.
+
+🏆 Få React til å skrive ut en `<h1 />`-tag med teksten "Bekkstagram" inni.
 
 <details><summary>🚨Løsningsforslag</summary>
 Vi gjør alt arbeidet vårt i `App`-funksjonen.
@@ -109,7 +116,7 @@ function App() {
 
 Den HTML-lignende syntaksen er hva vi kaller JSX, og er egentlig bare en fin måte å skrive `React.createElement('h1', null, 'Bekkstagram');` på.
 
-Funksjonen `App` blir kjørt lenger nede, her:
+Funksjonen `App` blir kjørt i `src/index.js`, her:
 
 ```js
 ReactDOM.render(<App />, rootElement);
@@ -121,9 +128,11 @@ Her ber vi React plassere resultatet av hva `App`-funksjonen returnerer inn i `r
 
 ### Oppgave 2: Din første komponent!
 
-På tide å refaktorere litt. Lag en ny komponent, `<Header />`, som skriver ut en `<h1 />`-tag med teksten "Bekkstagram" inni, og bruk den i appen din.
+React er egentlig bare en haug med funksjoner som returnerer JSX. Disse funksjonene kaller vi "komponenter".
 
-Husk: En React-komponent er en funksjon som starter med `StorForbokstav`, og som returnerer litt JSX.
+🏆 Lag en ny komponent, `<Header />`, som skriver ut en `<h1 />`-tag med teksten "Bekkstagram" inni, og bruk den i appen din.
+
+> 💡 En React-komponent er en funksjon som starter med `StorForbokstav`, og som returnerer litt JSX eller `null`.
 
 <details><summary>🚨Løsningsforslag</summary>
 
@@ -149,9 +158,15 @@ Det fine med komponenter er at de kan brukes gang på gang - du har laget noe so
 
 ### Oppgave 3: Bilde-komponent
 
-Komponenter er morsommere når man bruker props. Lag en ny komponent `<Image />` som tar i mot to props, `src` og `alt`, og som lager en `<img />`-tag som bruker disse to propsa.
+Komponenter er morsommere når man sender inn litt data. Som vi husker fra over, er komponenter bare funksjoner som returnerer litt JSX. Disse funksjonene blir kalt med ett argument - et objekt vi kaller `props` .
 
-Legg på css-klassen `image` på `<img />`-taggen, så får den tilogmed riktig design!
+Du sender inn props til en komponent ved å spesifisere dem som attributten på JSX-elementet - akkurat som på vanlig HTML.
+
+🏆 Lag en ny komponent `<Image />` som tar i mot to props, `src` og `alt`, og som lager en `<img />`-tag som bruker disse to propsa.
+
+🏆 Legg på css-klassen `image` på `<img />`-taggen, så får den tilogmed riktig design!
+
+> 💡 I React så skriver man `className` istedenfor `class` - det er fordi JSX egentlig er JavaScript, og `class` er et såkalt reservert ord i JavaScript. Det er litt irriterende i starten, men man vender seg fort til det.
 
 <details><summary>🚨Løsningsforslag</summary>
 Alle komponenter mottar et objekt som første argument. Verdiene i dette objektet kaller vi `props`. Derifra kan vi hente ut attributtene vi sendte med komponenten vår!
@@ -179,11 +194,11 @@ Husk at en prop kan være hva som helst - en tekststreng, et tall, et objekt, en
 
 ### Oppgave 4: En liste med bilder
 
-Det beste med komponenter er at man kan bruke dem gang på gang. I denne oppgaven skal du loope ut en liste med bilder. Listen finner du i `src/data/images.js`
+Det beste med komponenter er at man kan bruke dem gang på gang. I denne oppgaven skal du loope ut en liste med bilder, og bruke samme komponenten hver gang.
 
-Du kan bruke `Image`-komponenten du laget i forrige oppgave til å skrive ut bildet - husk å sende inn riktige props!
+🏆 Skriv ut en liste med bilder til nettleseren. Listen finner du i `src/data/images.js`, og du kan bruke `Image`-komponenten du laget i forrige oppgave til å skrive ut bildet. Husk å sende inn riktige props!
 
-Husk at du trenger en unik `key` for hvert element i lista - ellers vet ikke React hvilket element som endrer seg!
+> 💡 Husk at du trenger å sende inn en _unik_ `key` prop for hvert element i lista - ellers klarer ikke React å oppdatere lista di riktig.
 
 <details><summary>🚨Løsningsforslag</summary>
 
@@ -219,7 +234,9 @@ https://dev.to/jtonzing/the-significance-of-react-keys---a-visual-explanation--5
 
 ### Oppgave 5: Sett sammen komponenter med children
 
-På tide å gjøre innleggene våre litt mer innholdsrike. Wrap hver av `Image`-komponentene du lister ut i en `Post`-komponent.
+På tide å gjøre innleggene våre litt mer innholdsrike.
+
+🏆 Wrap hver av `Image`-komponentene du lister ut i en `Post`-komponent.
 
 Post-komponenten skal skrive ut følgende DOM-struktur:
 
@@ -233,7 +250,7 @@ Post-komponenten skal skrive ut følgende DOM-struktur:
 
 Hvordan du får til nettopp det er opp til deg - men vi anbefaler at du bruker `children` prop-en. Du kan lese mer om `props.children` i [dokumentasjonen til React](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx).
 
-Vi kan anbefale funksjonen [`distanceInWordsToNow`](https://date-fns.org/v1.9.0/docs/distanceInWordsToNow) fra biblioteket `date-fns` for å vise timestamp-informasjonen.
+> 💡 Vi kan anbefale funksjonen [`distanceInWordsToNow`](https://date-fns.org/v1.9.0/docs/distanceInWordsToNow) fra biblioteket `date-fns` for å vise timestamp-informasjonen.
 
 <details><summary>🚨Løsningsforslag</summary>
 `children` er en spesiell prop. Når du skrive koden din slik:
@@ -288,17 +305,19 @@ Henger du med? Hvis ikke er det helt okei. Spør spørsmål til de som går rund
 
 Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
 
-Lag to nye komponenter - `FeedPage` og `DetailPage`. `FeedPage` bør vise listen over bilder du hadde fra før av. `DetailPage` bør vise bildet som har IDen i URLen.
+🏆 Lag to nye komponenter - `FeedPage` og `DetailPage`. `FeedPage` bør vise listen over bilder du hadde fra før av. `DetailPage` bør vise bildet som har IDen i URLen.
 
-Bruk `Router`-komponenten fra `react-router` til å spesifisere URLene de forskjellige sidene skal vises på. `FeedPage` bør vises på `/`, og `DetailPage` bør vises på `/post/:id`.
+Bruk `Router`- og `Route`-komponentene fra `react-router` til å spesifisere URLene de forskjellige sidene skal vises på. `FeedPage` bør vises på `/`, og `DetailPage` bør vises på `/post/:id`.
 
-Legg så på en lenke rundt hvert bilde, slik at man kan navigere til detalj-siden for det bildet. Du kan også legge til en lenke rundt `<h1 />`-taggen, slik at man kan trykke på "logoen" for å returnere til feeden igjen. Her er `Link`-komponenten fra `react-router` fin å bruke.
+🏆 Legg på en lenke rundt hvert bilde, slik at man kan navigere til detalj-siden for det bildet. URLen burde være `/post/iden-til-det-bildet`.
 
-> #### 💡 Dynamiske routes
->
-> `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`, og sende henholdsvis "1", "1337" og "ett-eller-annet" i `props.match.params.id`.
+🏆 Legg på en lenke i `<h1 />`-taggen, slik at man kan trykke på "logoen" for å returnere til feeden igjen.
 
-Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
+> 💡 For interne lenker er `Link`-komponenten fra `react-router` fin å bruke. For eksterne lenker ut av appen din kan du bruke vanlige `<a href />`-tags.
+
+> 💡 `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`, og sende henholdsvis "1", "1337" og "ett-eller-annet" i `props.match.params.id`.
+
+> 💡 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
 
 <details><summary>🚨Løsningsforslag</summary>
 I denne oppgaven skal vi introdusere routing - det å kunne ha flere forskjellige URLer, og vise forskjellig innhold på hver av sidene.
