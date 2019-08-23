@@ -149,7 +149,7 @@ Det fine med komponenter er at de kan brukes gang på gang - du har laget noe so
 
 ### Oppgave 3: Bilde-komponent
 
-Komponenter er morsommere når man bruker props. Lag en ny komponent `Image` som tar i mot to props, `src` og `alt`, og som lager en `<img />`-tag som bruker disse to propsa.
+Komponenter er morsommere når man bruker props. Lag en ny komponent `<Image />` som tar i mot to props, `src` og `alt`, og som lager en `<img />`-tag som bruker disse to propsa.
 
 Legg på css-klassen `image` på `<img />`-taggen, så får den tilogmed riktig design!
 
@@ -219,9 +219,70 @@ https://dev.to/jtonzing/the-significance-of-react-keys---a-visual-explanation--5
 
 ### Oppgave 5: Sett sammen komponenter med children
 
-På tide å gjøre innleggene våre litt mer innholdsrike. I denne oppgaven skal vi lage tre nye komponenter, og sende inn data ved hjelp av en ny prop - `children`.
+På tide å gjøre innleggene våre litt mer innholdsrike. Wrap hver av `Image`-komponentene du lister ut i en `Post`-komponent.
 
-https://codesandbox.io/s/oppgave-5-children-q70jx
+Post-komponenten skal skrive ut følgende DOM-struktur:
+
+```html
+<div className="post">
+  <div className="author">...</div>
+  <!-- bilde -->
+  <div className="timestamp">...</div>
+</div>
+```
+
+Hvordan du får til nettopp det er opp til deg - men vi anbefaler at du bruker `children` prop-en. Du kan lese mer om `props.children` i [dokumentasjonen til React](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx).
+
+Vi kan anbefale funksjonen [`distanceInWordsToNow`](https://date-fns.org/v1.9.0/docs/distanceInWordsToNow) fra biblioteket `date-fns` for å vise timestamp-informasjonen.
+
+<details><summary>🚨Løsningsforslag</summary>
+`children` er en spesiell prop. Når du skrive koden din slik:
+
+```js
+<MinKomponent>Hei og hallo</MinKomponent>
+```
+
+, så dukker innholdet mellom taggene (i dette tilfellet "Hei og hallo") opp i denne prop-en.
+
+Dette kan man bruke til å sette sammen flere komponenter, og lage hierarkier, slik som HTML har fra før av.
+
+I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
+
+```js
+function Timestamp(props) {
+  return (
+    <div className="timestamp">{distanceInWordsToNow(props.timestamp)} ago</div>
+  );
+}
+```
+
+Her er det ikke veldig mye nytt. Vi kaller funksjonen `distanceInWordsToNow` for å gjøre om et dato-objekt til en tekststreng.
+
+```js
+function Author(props) {
+  return <div className="author">{props.children}</div>;
+}
+```
+
+Her bruker vi `props.children` for første gang! Det betyr at vi plasserer hva enn man plasserer mellom `<Author>` og `</Author>` inni en `<div />` med et klassenavn på. Dette "hva enn" kan være en tekst, et tall eller mer JSX.
+
+```js
+function Post(props) {
+  return (
+    <div className="post">
+      <Author>{props.author}</Author>
+      {props.children}
+      <Timestamp timestamp={props.timestamp} />
+    </div>
+  );
+}
+```
+
+`<Post />`-komponenten vår bruker alt på en gang! Her sender vi inn `props.author` som `children`-propen til `<Author />`-komponenten, etterfulgt av at vi plasserer `Post`'s egne `props.children`-prop under. Til slutt plasserer vi `<Timestamp />`-komponenten nederst, og vidersender `timestamp`-propen.
+
+Henger du med? Hvis ikke er det helt okei. Spør spørsmål til de som går rundt og hjelper.
+
+</details>
 
 ### Oppgave 6: Vis ett og ett bilde
 
