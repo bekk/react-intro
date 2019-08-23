@@ -288,13 +288,110 @@ Henger du med? Hvis ikke er det helt okei. Spør spørsmål til de som går rund
 
 Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
 
+Lag to nye komponenter - `FeedPage` og `DetailPage`. `FeedPage` bør vise listen over bilder du hadde fra før av. `DetailPage` bør vise bildet som har IDen i URLen.
+
+Bruk `Router`-komponenten fra `react-router` til å spesifisere URLene de forskjellige sidene skal vises på. `FeedPage` bør vises på `/`, og `DetailPage` bør vises på `/post/:id`.
+
+Legg så på en lenke rundt hvert bilde, slik at man kan navigere til detalj-siden for det bildet. Du kan også legge til en lenke rundt `<h1 />`-taggen, slik at man kan trykke på "logoen" for å returnere til feeden igjen. Her er `Link`-komponenten fra `react-router` fin å bruke.
+
+> #### 💡 Dynamiske routes
+>
+> `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`, og sende henholdsvis "1", "1337" og "ett-eller-annet" i `props.match.params.id`.
+
 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
 
-https://codesandbox.io/s/oppgave-6-routing-7bmtd
+<details><summary>🚨Løsningsforslag</summary>
+I denne oppgaven skal vi introdusere routing - det å kunne ha flere forskjellige URLer, og vise forskjellig innhold på hver av sidene.
 
-### Bonus: Skift utseende
+Vi starter med å installere biblioteket `react-router-dom`, som er den mest populære måten å løse dette på i dag. Du kan finne dokumentasjonen på https://reacttraining.com/react-router/web/guides/quick-start.
 
-Hadde det ikke vært kult å kunne bytte utseende på Bekkstagram? Flaks for deg: dette har vi allerede lagt til rette for! Fra og med oppgave 6 kan du bruke metodene i `theme-util.js` til å sette et predefinert tema – eller bare lage ditt eget. 🌈
+Dette biblioteket er egentlig ganske enkelt. Man spesifiserer en komponent, og for hvilke URLer man vil at denne komponenten skal vises.
+
+Det aller første vi må gjøre er å wrappe hele App-komponenten vår i en `<BrowserRouter />`-komponent.
+
+```js
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <FeedPage />
+      </div>
+    </BrowserRouter>
+  );
+}
+```
+
+Vi skal vise to forskjellige sider - en på url-en "/" (altså på rotnivå), og en på urlen "/post/1", "/post/2" osv, avhengig av IDen til bildet vi skal vise. Vi kaller hver av disse to URLene en rute - eller route på engelsk. For å vise en komponent hvis URLen "matcher" `"/"`, for eksempel - trenger vi å bruke en `<Route />`-komponent (også fra `react-router-dom`-pakken):
+
+```js
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Route exact path="/" component={FeedPage} />
+      </div>
+    </BrowserRouter>
+  );
+}
+```
+
+Her sender vi inn `path` som er URLen vi vil matche, `exact` for at vi bare vil vise denne siden når urlen er _eksakt_ "/" og `component` mottar den komponenten vi vil vise når URLen matcher.
+
+Det gir ikke mye mening å bare ha en rute når man har en router, så la oss legge til detaljsiden også. Vi vil vise detaljsiden når URLen er "/post/1", "/post/2" osv - da kan vi bruke en såkalt "route parameter", og spesifisere path-en som "/path/:id".
+
+```js
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Route exact path="/" component={FeedPage} />
+        <Route exact path="/post/:id" component={DetailPage} />
+      </div>
+    </BrowserRouter>
+  );
+}
+```
+
+Som du ser av koden i `DetailPage`, kan man hente ut verdien av `:id` i `props.match.params.id` - hvor `id` er `tekstenEtterKolon` i `path`-parameteren. Komponenten du sender inn til Route mottar nemlig endel ekstra props fra `react-router-dom` - du kan lese mer om dem her: https://reacttraining.com/react-router/web/api/Route/route-props
+
+For at det skal være noe vits med slike ruter, trenger vi å lage noen lenker mellom dem også. Der må vi bruke nok en komponent fra `react-router-dom` - nemlig `<Link />`. Du kan se dokumentasjonen her: https://reacttraining.com/react-router/web/api/Link
+
+Vi lager to lenker - logoen vår i `<Header />`-komponenten lenker til "/", og hvert bilde lenker til "/post/{iden-til-det-bildet}". Slik ser det ut:
+
+```js
+function Header(props) {
+  return (
+    <header className="site-header">
+      <h1>
+        <Link to="/">Bekkstagram</Link>
+      </h1>
+    </header>
+  );
+}
+```
+
+```js
+function FeedPage(props) {
+  return (
+    <div className="posts">
+      {images.map(image => (
+        <Post key={image.id} author={image.user} timestamp={image.timestamp}>
+          <Link to={`/post/${image.id}`}>
+            <Image src={image.url} alt={imag  e.description} />
+          </Link>
+        </Post>
+      ))}
+    </div>
+  );
+}
+```
+
+Til sammen har vi nå en app med to "sider". En feed-side, som egentlig bare er en feed-komponent som bare vises når URLen er "/", og en detaljside, som er en detalj-komponent som bare vises når URLen er "/post/1" osv.
+
+</details>
 
 ## Del 2: Tilstand og sideeffekter
 
