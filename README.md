@@ -540,23 +540,124 @@ I oppgave 8 skal vi fokusere på å utføre forskjellige side-effekter. Side-eff
 
 ### 8A: Oppdater tittel
 
-Når man går inn på et bilde burde man oppdatere tittelen til websiden (det som står oppe i fanen). Bruk hooken `useEffect` til å oppdatere den!
+Når man går inn på et bilde burde man oppdatere tittelen til websiden (det som står oppe i fanen).
 
-https://codesandbox.io/s/oppgave-8-min-forste-side-effekt-o5xlp
+🏆 Bruk hooken `useEffect` til å oppdatere tittelen til å si "📷 av @brukernavn" når man går inn på en detaljside.
+
+> 💡 Du kan sette sidetittelen med å endre `document.title`
+
+<details><summary>🚨 Løsningsforslag</summary>
+En side-effekt er noe som påvirker noe utenfor React-verdenen. Det kan være å kalle DOM-APIer, hente data eller noe helt annet. I dette tilfellet vil vi oppdatere dokument-tittelen - den tekststrengen som vises i nettleser-fanen.
+
+Vi bruker den innebygde hooken `useEffect` for å kjøre denne side-effekten inni komponenten vår. `useEffect` tar i mot en funksjon som skal utføre side-effektene for oss. Vi kan implementere det slik:
+
+```js
+React.useEffect(() => {
+  document.title = 'Min nye tittel';
+});
+```
+
+I vårt tilfelle vil vi at tekst-strengen skal gjenspeile hvilken bruker som har lastet opp bildet. Det er ikke noe vanskeligere enn vanlig:
+
+```js
+React.useEffect(() => {
+  document.title = `📷 av ${image.user}`;
+});
+```
+
+Når du navigerer fra ett bilde til et annet ser du at tittelen oppdaterer seg. Du må riktignok åpne panelet til høyre i ene egen fane for å se det.
+
+Sluttresultatet ser slik ut:
+
+```js
+function DetailPage(props) {
+  const image = images.find(
+    image => image.id === Number(props.match.params.id),
+  );
+  React.useEffect(() => {
+    document.title = `📷 av ${image.user}`;
+  });
+  return (
+    <div className="detail">
+      <Post author={image.user} timestamp={image.timestamp}>
+        <Image src={image.url} alt={image.description} />
+      </Post>
+    </div>
+  );
+}
+```
+
+</details>
 
 ### 8B: Oppdater tittel (del 2)
 
 Oppgave 8A innførte en liten bug - når man returnerer til feed-siden (hovedsiden) resetter man ikke tittelen! Det bør vi gjøre noe med. Refaktorer ut en funksjon som setter tittelen for deg, og kall den `useTitle`. Dette er hva man kaller en [custom hook](https://reactjs.org/docs/hooks-custom.html).
 
-Bruk din første custom hook både på `DetailsPage` og `FeedPage`.
+> 💡 En custom hook er bare en helt vanlig funksjon som starter med `use`, og som kaller en eller flere hooks. Det er ikke noe mer magi!
 
-https://codesandbox.io/s/oppgave-8b-custom-hooks-379e8
+🏆 Bruk din første custom hook både på `DetailsPage` og `FeedPage`.
+
+<details><summary>🚨 Løsningsforslag</summary>
+Denne oppgaven er nesten bare copy paste.
+
+Vi lager en ny fil - `useTitle.js`, og fyller inn følgende:
+
+```js
+import React from 'react';
+
+export default function useTitle(title) {
+  React.useEffect(() => {
+    document.title = title;
+  });
+}
+```
+
+Med andre ord så lager vi en funksjon som kaller en hook. Dette er hva man kaller en custom hook.
+
+Vi kan nå endre koden vår i `DetailPage` til å kalle vår nye hook:
+
+```js
+import useTitle from '../hooks/useTitle';
+
+export default function DetailPage(props) {
+  const image = images.find(
+    image => image.id === Number(props.match.params.id),
+  );
+  useTitle(`📷 av ${image.user}`);
+  return (...);
+```
+
+Vi kan også lett bruke samme funksjonalitet i `FeedPage`:
+
+```js
+import useTitle from '../hooks/useTitle`;
+
+export default function FeedPage(props) {
+  useTitle(`Bekkstagram`);
+  return (...)
+}
+```
+
+</details>
 
 ### 8C: Oppdater tittel (del 3)
 
-Custom Hooken vår ser fin ut - men den setter tittelen hver eneste gang vi rendrer siden vår. Det er kanskje ikke noe problem akkurat nå - men det kan det fort bli. Oppdater `useTitle` med et `dependency array` som andre argument. ([Her er dokumentasjonen](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects))
+Custom Hooken vår ser fin ut - men den setter tittelen hver eneste gang vi rendrer siden vår. Det er kanskje ikke noe problem akkurat nå - men det kan det fort bli.
 
-https://codesandbox.io/s/oppgave-8c-dependency-arrays-kwmrr
+🏆 Oppdater `useTitle` med et `dependency array` som andre argument. ([Her er dokumentasjonen](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects))
+
+<details><summary>🚨 Løsningsforslag</summary>
+Det eneste vi trenger å gjøre her er å legge til et array som andre argument i useEffect. Bruker man et tomt array trigges useEffect kun ved første render. Vi vil derimot at useEffect trigges hver gang `title` endrer seg, derfor legger vi `title` inni arrayet.
+
+```js
+export default function useTitle(title) {
+  React.useEffect(() => {
+    document.title = title;
+  }, [title]);
+}
+```
+
+</details>
 
 ### Oppgave 9: Hent data fra backenden
 
