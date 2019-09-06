@@ -725,131 +725,362 @@ const image = useImage(id);
 
 </details>
 
-### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
+### Oppgave 10: Legg til bilder!
 
-Frem til nå har vi bare brukt en lokal statevariabel for å telle likes. Nå er det på tide å oppdatere likes-komponenten, slik at den kan vite hvem som har liket, og persistere alle likes til serveren! Bruk det nye endepunktet `putLike()` for å oppdatere likes backend. Det betyr at i denne oppgaven skal vi erstatte den gamle likes-funksjonaliteten som kun er tall, med nye like-objekter.
+Ingen bilder er like kule som sine egne. I denne oppgaven skal du prøve å laste opp dine egne.
 
-I denne oppgaven vil du bli bedt om å oppgi et brukernavn når du går inn på appen. Det er for å gi deg en slags brukerkonto underveis.
+> 💡 Før du begynner denne oppgaven så anbefaler vi at du åpner filen "sett-brukernavnet-ditt-her.js", og gir deg selv et unikt brukernavn!
 
-> Tips: `putLike()` returnerer det nye like-objektet async (ved et vellykket kall) og kan kalles slik i en async funksjon: `const likeResponse = await putLike(props.imageId, username);`
+For å gjøre det enkelt, lar vi deg kun legge til bilder som allerede ligger på internett. Finn en URL til et bilde du har rettighetene til, og vis det på siden!
 
-https://codesandbox.io/s/oppgave-10-oppdatere-sende-likes-til-backend-kggcn
+🏆 Lag et brukergrensesnitt for å legge til bilder. Vi trenger en URL og en beskrivelse. Bruk `uploadImage`-funksjonen fra `./server`-filen for å laste opp bilder.
 
-**Merk: Herfra og utover trenger du ikke tenke på å få testene grønne (fordi de resterende oppgavene ikke har tester).**
+> 💡 Funksjonen `uploadImage` tar imot et objekt som argument:
+>
+> ```js
+> import { uploadImage } from './server';
+> // ...
+> uploadImage({
+>   url: 'https://placekitten.com/600/400',
+>   description: 'A very cute kitten',
+> });
+> ```
 
-### Oppgave 11 a) Legg til kommentarer
+🏆 Legg til en knapp på siden for å vise "legg til bilde"-grensesnittet ditt. Du kan f.eks. vise denne brukerinputen med pakken `@reach/dialog`, eller skrive din egen.
 
-På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
+> 💡 @reach/dialog er en ferdig installert pakke i dette prosjektet. Du finner dokumentasjonen til @reach/dialog på [hjemmesiden deres](https://ui.reach.tech/dialog/)
+>
+> ```js
+> import { Dialog } from '@reach/dialog';
+> import '@reach/dialog/styles.css';
+> ```
 
-> Tips til oppsett: En "container"-komponent `<Comments>` rendret under hvert bilde som går gjennom alle kommentarene til bildet og rendrer en `<Comment>` for hver kommentar og til slutt en `<CommentForm>`-komponent.
+> 💡 Importer et bildeikon av et kamera for å bruke som legg-til-bilde-knapp fra [react-icons](https://www.npmjs.com/package/react-icons), her et ikon fra [Font Awesome](https://fontawesome.com/icons?d=gallery&q=camera):
+>
+> ```js
+> import { FaCameraRetro } from 'react-icons/fa';
+> ```
+>
+> Du kan også legge på klassen "camera-button" på knappen din for å få den til å se pen ut, og dukke opp nede i hjørnet :)
 
-https://codesandbox.io/s/oppgave-11a-legg-til-kommentarer-hkrjg
+🏆 Hvis du sender inn en ugyldig URL til `uploadImage` vil den throwe en exception. Hvis dette skjer, si ifra til brukeren, og da dem prøve igjen!
 
-### Oppgave 11 b) Rendre kommentarfeltet automatisk når man legger til ny kommentar
+🏆 Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at det har blitt lagt til.
 
-Hvis du ikke allerede har implementert det: Det er fint å slippe å refreshe siden for at en ny kommentar skal dukke opp i kommentarfeltet. Fiks dette!
+<details><summary>🚨 Løsningsforslag</summary>
+Denne oppgaven kan nok løses på flere måter, men vi har valgt å implementere en knapp som åpner en modal/dialog med to input-felter hvor man kan skrive inn en bildeurl og en beskrivelse. Det meste er laget i en ny `<AddImage>`-komponent.
 
-> Tips: En funksjonskomponent blir rendret på nytt hvis staten endres. Prøv å legg til kommentarene som en state i `<Comments>` som oppdateres når man klikker på post-knappen i `<CommentForm>`. Funksjoner kan også bli sendt med som props.
-
-https://codesandbox.io/s/oppgave-11b-kommentarer-kqs66
-
-### Oppgave 12: Vis bildebeskrivelsen
-
-Hvis du ikke har gjort det allerede: Legg til bildebeskrivelsen (`description`) under hvert bilde.
-
-https://codesandbox.io/s/oppgave-12-vis-bildebeskrivelsen-s8btp
-
-### Oppgave 13: Legg til nye bilder
-
-APIet vårt har også støtte for å legge til nye bilder i Bekkstagram. Et bilde kan legges til vha. en `POST` til https://bekkstagram-api.herokuapp.com/api/media med følgende body:
-
-| Key         | Value                                                                                       |
-| ----------- | ------------------------------------------------------------------------------------------- |
-| url         | https://res.cloudinary.com/bekkimg/w_768,h_1024,c_fill/d_default_image_departmentId4.png/26 |
-| description | Mr. Bossman                                                                                 |
-| username    | Olav Folkestad                                                                              |
-
-Metoden `postImage(imageUrl, description)` er allerede implementert i api'et som kan kalles for å legge til et bilde. Metoden sjekker at bilde-URLen er gyldig og returnerer `undefined` samt sender en errormelding til consolen om url'en er ugyldig. Hvis ikke returnerer den det nye bildeobjektet som har blitt lagt til backend.
-
-#### Oppgave 13 a)
-
-Legg til funksjonalitet for å legge til et bilde, for eksempel en knapp som åpner en modal/dialog hvor man kan skrive inn en bildeurl og bildebeskrivelse.
-
-#### Oppgave 13 b)
-
-Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at det har blitt lagt til.
-
-Bruk linken under for å gjøre begge deloppgavene:
-
-https://codesandbox.io/s/oppgave-13-legg-til-nye-bilder-2f9m9
-
-#### Tips
-
-> Tips 1: Importer et bildeikon av et kamera for å bruke som legg-til-bilde-knapp fra [react-icons](https://www.npmjs.com/package/react-icons), her et ikon fra [Font Awesome](https://fontawesome.com/icons?d=gallery&q=camera):
+Selve knappen vi har brukt er bare et ikon av et kamera vi har hentet fra et ekstern bibliotek, og kan importeres (som en komponent) slik:
 
 ```js
 import { FaCameraRetro } from 'react-icons/fa';
 ```
 
-> Tips 2: Importer <Dialog> med følgende kodelinjer for å få tilgang til Reach UI sin [Dialog-komponent](https://ui.reach.tech/dialog/):
+Denne har en `onClick`-prop som vi kan bruke for å åpne dialogen vi vil skal dukke opp. Vi kan importere en veldig fin Dialog-komponent fra biblioteket "reach" slik:
 
 ```js
 import { Dialog } from '@reach/dialog';
-import '@reach/dialog/styles.css';
 ```
 
-### Oppgave 14: Toggle likes
+Dialog-komponenten har en del props, deriblant `isOpen` og `onDismiss`, som det er naturlig å styre med en state i `<AddImage>`-komponenten vår. Et par states til er også naturlig å ha for å lagre url'en og beskrivelsen som man etterhvert skriver inn i input-feltene:
 
-Løsningsforslaget i oppgave 10 legger opp til at man kan like et bilde en gang, men når man først har gjort det er det ingen vei tilbake! Endre dette slik at annethvert klikk er like og unlike. Marker gjerne dette visuelt med to forskjellige emojis: Like 💛 og unlike 💔.
+```js
+const [showDialog, setShowDialog] = useState(false);
+const [imageUrl, setImageUrl] = useState('');
+const [imageDescription, setImageDescription] = useState('');
+```
 
-Vi har allerede laget en funksjon deleteLikes() for dere som tar inn imageId. Som dere kan bruke når dere skal slette en like.
+`isOpen`-propen til Dialog kan da settes til `showDialog` og `onDismiss` kaller `setShowDialog(false)`.
 
-https://codesandbox.io/s/oppgave-14-toggle-likes-oi2s4
+Alt innholdet i dialogen sendes inn som children til Dialog-komponenten. Det som dialogen blant annet må inneholde er en knapp som fyrer avgårde et api-kall til backenden for å lagre bilde med url'en og beskrivelsen som er spesifisert. Dette kan man gjøre direkte, f. eks bare:
 
-### Oppgave 15: Legg til støtte for å like en kommentar
+```js
+<button onClick={() => postImage(imageUrl, imageDescription)}>Publiser!</button>
+```
 
-Ved å bruke Bekkstagram-APIet kan man legge til funksjonalitet for å like en kommentar på et bilde. Likes på en kommentar kan hentes med en `GET` til https://bekkstagram-api.herokuapp.com/api/media/{mediaId}/comments/{commentId}/likes (`{mediaIDN}` og `{commentID}` erstattes med hver sin tallverdi). Denne listen med likes kommer dessuten med når man henter et bilde med de eksisterende api-kallene (sjekk va du får i network i dev tools). Nye likes kan registeres med en `PUT` til samme adresse. Bodyen må da har følgende innhold:
+Men da vil ikke feeden oppdatere seg automatisk. <FeedPage> vil oppdateres hvis staten oppdateres. Hvis vi dermed legger bildene i en state og lager en funksjon for å legge til et bilde til staten, kan vi sende denne funksjonen ned til `<AddImage>`-komponenten og kalle denne herfra etter å ha sendt bildet til backenden med api'et (`postImage`-metoden vil returnere det nye bilde-objektet som har blitt lagt til). Da vil staten til `<FeedPage>` oppdateres med det nye bildet og komponenten vil rendres på nytt med det nye bildet.
 
-| Key      | Value        |
-| -------- | ------------ |
-| username | ola.nordmann |
+Endringene som da kan gjøres i `<FeedPage>`:
 
-Vi ar allerede implementert en funksjon i api.js for dere, putCommentLike(imageId, commentId), som kan brukes i løsningen av oppgaven.
+```js
+const [images, setImages] = useState(null);
 
-https://codesandbox.io/s/oppgave-15-likes-for-kommentarer-0tyij
+const imagesFromFeed = useFeed();
 
-## Bonusoppgaver
+useEffect(() => {
+  setImages(imagesFromFeed);
+}, [imagesFromFeed]);
 
-Har du kommet helt hit, er vi virkelig imponert! Da har vi noen bonusoppgaver til deg, som du kan bryne deg på helt på slutten. Det er bare å fortsette fra den siste codesandbox'en du åpnet, her får du nemlig ingen løsningsforslag, men bare spør instruktørene om det er noe du lurer på! 🙌
+const onAddImage = image => {
+  setImages(prevImages => [...prevImages, image]);
+};
+```
 
-Merk at bonusoppgavene ikke trengs å gjøres i rekkefølge, her kan du bare plukke det som virker mest interessant. Helt til sist er en oppgave som er helt uavhengig av det vi har gjort til nå, hvis du har gått lei av å knote med Bekkstagram! 😁
+Samt legge til `<AddImage>`-komponenten helt nederst i `<FeedPage>`:
 
-### Bonusoppgave: Søkefelt
+```js
+<AddImage onAddImage={onAddImage} />
+```
 
-Implementer et søkefelt på start/feed-siden, som du kan bruke til å filtrere feeden. For eksempel å kunne søke på "fjell", og kun få bilder med teksten "fjell" i description-feltet.
+Hele den nye `<AddImage>`-komponenten:
 
-### Bonusoppgave: Hashtags
+```js
+import React, { useState } from 'react';
+import { postImage } from '../api';
+import { FaCameraRetro } from 'react-icons/fa';
+import { Dialog } from '@reach/dialog';
 
-Her kan du for eksempel endre koden for visning av bildebeskrivelser så ord som starter på "#" blir mulig å trykke på. Når man trykker på en hashtag kan man sendes til en egen feed som kun viser bilder som har den hashtagen i beskrivelsen (eller også i kommentarene under?).
+export const AddImage = props => {
+  const [showDialog, setShowDialog] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
+  const [imageDescription, setImageDescription] = useState('');
 
-Et alternativ til å bare filtrere feeden i denne og den neste oppgaven er å f.eks vise bildene til en valgt bruker eller hashtag som klikkbare tiles, med bildebeskrivelsen som hover-tekst.
+  const addImage = async (imageUrl, imageDescription) => {
+    const imageResponse = await postImage(imageUrl, imageDescription);
+    if (!imageResponse) {
+      return;
+    }
+    props.onAddImage(imageResponse);
+    resetAndCloseDialog();
+  };
 
-### Bonusoppgave: Brukerspesifikk feed
+  const resetAndCloseDialog = () => {
+    setImageUrl('');
+    setImageDescription('');
+    setShowDialog(false);
+  };
 
-Brukernavnet til personen som lastet opp et bilde kan gjøres klikkbart, og om du klikker på det kan du f.eks. tas til en feed som kun viser bilder lagt ut av den personen. Her kan du også inkludere en egen liste under/over/ved siden av feeden av kommentarene som brukeren har lagt inn under andre bilder.
+  return (
+    <div className="add-image-container">
+      <button className="camera-button" onClick={() => setShowDialog(true)}>
+        <FaCameraRetro />
+      </button>
+      <Dialog
+        className="add-image-dialog"
+        isOpen={showDialog}
+        onDismiss={() => setShowDialog(false)}
+      >
+        <h3>Publiser et nytt bilde</h3>
+        <input
+          className="add-image-dialog-input"
+          value={imageUrl}
+          onChange={event => setImageUrl(event.target.value)}
+          placeholder="Url'en til bildet..."
+        />
+        <input
+          className="add-image-dialog-input"
+          value={imageDescription}
+          onChange={event => setImageDescription(event.target.value)}
+          placeholder="Bildebeskrivelse..."
+        />
+        {imageUrl.length > 0 ? (
+          <button
+            className="add-image-dialog-publiserbutton"
+            onClick={() => addImage(imageUrl, imageDescription)}
+          >
+            Publiser!
+          </button>
+        ) : (
+          <button className="add-image-dialog-publiserbutton-disabled" disabled>
+            Publiser!
+          </button>
+        )}
 
-Et alternativ til å bare filtrere feeden i denne og den forrige oppgaven er å f.eks vise bildene til en valgt bruker eller hashtag som klikkbare tiles, med bildebeskrivelsen som hover-tekst.
+        <button
+          className="add-image-dialog-avbrytbutton"
+          onClick={() => {
+            resetAndCloseDialog();
+          }}
+        >
+          Avbryt
+        </button>
+      </Dialog>
+    </div>
+  );
+};
+```
 
-### Bonusoppgave: "Paginering"
+</details>
 
-Etterhvert som bildefeeden består av flere og flere bilder vil appen bruke lengre og lengre tid på å rendre alt, men dette kan løses med noe som heter paginering! Paginering her vil basically si å kun vise et begrenset antall bilder av gangen, og rendre flere bilder når man gjør en eller annen handling. Det kan være å ha sidetall i toppen av feeden og rendre f eks de 10 første på sidetall 1, de 10 neste på sidetall 2 osv. Mer passende kanskje i denne appen vil være å rendre flere bilder etterhvert som man scroller nedover ("rendre 10+x bilder, hvor x økes med 10 hver gang man scroller til bunns").
+### Oppgave 11: Kommentarer
 
-> Tips: [Denne artikkelen](https://upmostly.com/tutorials/build-an-infinite-scroll-component-in-react-using-react-hooks) beskriver hvordan man kan detektere at man har scrollet til bunns og hente nye data når det skjer. Merk: Api'et vårt støtter ikke å kunne fetche kun et visst antall bilder fra backenden. Man må derfor uansett fetche alle bildene først som før, men hvor mange bilder som rendres kan man styre med dette.
+På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet for å vise kommentarer og legge til nye. Kommentarer ligger lagret som et array på hvert bildeobjekt som vi hentet fra backend i oppgave 9, så vi har allerede tilgang til det som ligger lagret i databasen fra før. Her er det bare å eksperimentere med nye komponenter og gjenbruke det dere hittil har lært! `<button>` og `<input>` er nyttige html-tags i denne oppgaven.
 
-### Bekkstagram-uavhengig bonusoppgave: TODO-app
+🏆 List ut kommentarer under hvert bilde.
 
-Lag din egen TODO-app fra scratch! Typiske ting en vanlig TODO-app burde kunne gjøre:
+> 💡 Tips: HTMLen din kan ha denne strukturen for styling:
+>
+> ```html
+> <div class="comments">
+>   <div class="comment">
+>     <span class="comment-user">@selbekk</span>
+>     <span class="comment-text">Sykt kult bilde!</span>
+>     <span class="timestamp">2 days ago</span>
+>   </div>
+> </div>
+> ```
 
-- Legge til TODOs
-- Krysse av og markere en TODO som gjort
-- Filtrere på ugjorte TODOs
+🏆 Legg til mulighet for å legge til en ny kommentar. Du kan bruke `putComment`-funksjonen fra `./server`-filen.
+
+> 💡 Funksjonen `putComment` tar imot to argumenter - bilde-iden kommentaren gjelder, og selve kommentaren:
+>
+> ```js
+> import { putComment } from './server';
+> // ...
+> putComment(imageId, comment);
+> ```
+
+🏆 Oppdater listen med kommentarer med den nye kommentaren!
+
+> Tips til oppsett: En "container"-komponent `<Comments>` rendret under hvert bilde som går gjennom alle kommentarene til bildet og rendrer en `<Comment>` for hver kommentar og til slutt en `<CommentForm>`-komponent.
+
+<details><summary>🚨 Løsningsforslag</summary>
+I denne oppgaven trenger vi flere nye komponenter.
+
+Først kan vi lage selve kommentar-komponenten, som skal vise hvem som postet kommentaren, kommentarteksten og en timestamp. Under har vi lagt kommentarteksten og brukeren i hver sin komponent:
+
+```js
+export const Comment = ({ comment }) => {
+  return (
+    <div className="comment">
+      <span className="comment-user">{comment.username}</span>
+      <span className="comment-text">{comment.text}</span>
+      <Timestamp timestamp={comment.createdDate} />
+    </div>
+  );
+};
+```
+
+Det kan være lurt å ha en "container"-komponent som innkapsler underkomponenter for bl.a. å ha en felles, overordnet styling på komponentene og gjøre det hele mer ryddig, i dette tilfellet ´Comments.js´. Denne tar inn hele arrayet med kommentarer som children, iterer over disse og rendrer `Comment` for hver av kommentarene. I tillegg rendrer den `CommentForm` som håndterer skriving av nye kommentarer.`Comment` skal kun rendres hvis det finnes noen kommentarer, `CommentForm` skal alltid rendres (scroll lengre ned for forslag til hvordan den kan implementeres).
+
+```js
+export const Comments = props => {
+  if (props.comments) {
+    return (
+      <div className="comments">
+        {props.comments.map((comment, key) => (
+          <Comment key={key} comment={comment} />
+        ))}
+        <CommentForm imageId={props.imageId} />
+      </div>
+    );
+  }
+  return <CommentForm imageId={props.imageId} />;
+};
+```
+
+´Comments.js´ kan vi rendre i ´Post´-komponenten vår. Kommentarene har vi automatisk tilgang til etter at vi har hentet alle bildene med API'et, da hvert bildeobjekt har et `comments`-array. Vi sender også med bilde-id'en som en egen prop for senere å kunne hente kommentarene fra backenden hvis dette skulle endre seg (ved at noen legger til nye kommentarer).
+
+```js
+const Post = props => {
+  return (
+    <div className="post">
+      <Author>{props.author}</Author>
+      {props.children}
+      <div className="post-details">
+        <Timestamp timestamp={props.timestamp} />
+        <Likes />
+      </div>
+      <Comments imageId={props.imageId} comments={props.comments} />
+    </div>
+  );
+};
+export default Post;
+```
+
+Nå vises alle kommentarene som allerede har blitt lagt til på hvert bilde, så da mangler det bare støtte for å skrive nye! Vi lager en ny komponent,`CommentForm.js`, og rendrer den rett under `Comments` i `Post`. `CommentForm` trenger et `<input />`-felt og en `<button>`.
+
+Hittil har vi kun hentet data med api'et, nå skal vi også skrive til backenden. Det gjør vi med `putComment()`-funksjonen, som trenger en bilde-id og et kommentarobjekt. Denne skal kalles når man klikker på knappen, så vi lager en `onCommentSubmit()`-funksjon som vi refererer til i `onClick`-propen til `<button />` som igjen kaller `putComment()`. Denne blir da kalt når knappen klikkes på.
+
+Vi bruker state til å lagre kommentaren man skriver i input-feltet som en streng, og oppdaterer state'en ved å kalle `setState`-funksjonen i `onChange`-funksjonen til `<input />`-feltet.
+
+En validering som ikke tillater å poste en kommentar med mindre man har skrevet noe i input-feltet er også lurt å inkludere.
+
+```js
+export const CommentForm = props => {
+  const [comment, setComment] = useState('');
+
+  function onCommentSubmit() {
+    if (comment.length === 0) {
+      return;
+    }
+    await putComment(props.imageId, comment);
+    setComment('');
+  }
+
+  return (
+    <div className="comment-form">
+      <input
+        value={comment}
+        onChange={event => setComment(event.target.value)}
+        placeholder="Add a comment..."
+      />
+      <button className="comment-form-button" onClick={onCommentSubmit}>
+        Post
+      </button>
+    </div>
+  );
+};
+```
+
+Du legger kanskje merke til at du ikke får opp kommentaren du la til før du refreshet siden?
+
+Vi kan løse dette ved å innføre state i `<Comments>` og lage en `addComment`-funksjon som setter denne staten, som vi igjen sender med til `<CommentForm>`-komponenten som kan kalle denne funksjonen når vi legger til en kommentar. Istedenfor å rendre propsene `<Comments>` mottar direkte rendrer vi heller denne staten. Derfor, når `<CommentForm>` endrer staten til `<Comments>`, vil det trigge en re-render av `<Comments>` med oppdatert comments-array siden staten har endret seg. Ved bruk av hooks/useState trigges det nemlig en re-render av komponenten når staten endres.
+
+Comments.js:
+
+```js
+export const Comments = props => {
+  const [comments, setComments] = useState(props.comments);
+
+  const addComment = comment => {
+    setComments(prevState => [...prevState, comment]);
+  };
+
+  if (comments) {
+    return (
+      <div className="comments">
+        {comments.map((comment, key) => (
+          <Comment key={key} comment={comment} />
+        ))}
+        <CommentForm
+          addComment={comment => addComment(comment)}
+          imageId={props.imageId}
+        />
+      </div>
+    );
+  }
+
+  return <CommentForm imageId={props.imageId} />;
+};
+```
+
+Endre `onCommentSubmit()` i `<CommentForm>` til.
+
+```js
+const onCommentSubmit = async () => {
+  const commentsResponse = await putComment(props.imageId, comment);
+  props.addComment(commentsResponse);
+  setComment('');
+};
+```
+
+Viktig å merke seg await'en, siden `putComment()` er en async funksjon må vi vente på svar før vi fortsetter.
+
+`const onCommentSubmit = async () => {}` er det samme som å skrive `async function onCommentSubmit() {}`.
+
+</details>
+
+## Ekstraoppgaver
+
+Vi har endel ekstraoppgaver som du kan bryne deg på om du får tid, eller om du trenger noen ekstra utfordringer på et senere tidspunkt.
+
+Vi har laget et API som har støtte for mye rart. Ta en titt på [koden om du vil](https://github.com/markusra/bekkstagram-api). Oppdater likes til backend, eller hva du vil egentlig :)
+
+- Vis bildebeskrivelsen under hvert bilde
+- Implementer at man bare kan like ett bilde per bruker
+- Implementer støtte for å lagre et like til serveren
+- Legg til støtte for hashtags
+- List ut alle bildene til en bruker
+- Søk etter innhold basert på hashtags, beskrivelser, brukernavn osv
+- Legg til paginering (hent litt og litt bilder)
