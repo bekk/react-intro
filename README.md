@@ -663,11 +663,67 @@ export default function useTitle(title) {
 
 Akkurat nå leser vi bare statisk data som vi har hardkodet inn i appen. La oss hente data fra APIet vårt!
 
-Vi har laget en funksjon `getFeed` som henter data fra APIet vårt. Dette kallet er asynkront, det vil si at man må vente litt på å få svar. Du kan lese mer om hvordan du kan hente data med hooks i [denne artikkelen](https://itnext.io/how-to-create-react-custom-hooks-for-data-fetching-with-useeffect-74c5dc47000a).
+Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjektet. Den returnerer et Promise som etterhvert returnerer en liste med bilder.
 
-> Tips: Lag en custom hook `useFeed` som lagrer dataen vi henter i en `useState`, og henter data én gang i en `useEffect`
+🏆 Hent en liste med bilder med `getFeed` funksjonen, og list dem ut på `FeedPage`.
 
-https://codesandbox.io/s/oppgave-9-hente-data-fra-api-9ze3b
+> 💡 Du kan bruke `useEffect` til å hente data fra serveren. Husk å bare hente ny data når det trengs - i vårt tilfelle er det bare når vi laster siden!
+
+> 💡 For å bare kjøre `useEffect` når man laster siden, så kan du spesifisere et tomt dependency array
+
+> 💡 Du kan lagre dataen med `useState`.
+
+<details><summary>🚨 Løsningsforslag</summary>
+
+For å hente bildene lager vi en ny custom hook `useFeed` som kan implementeres slik:
+
+```js
+const useFeed = () => {
+  const [images, setImages] = React.useState(null);
+  React.useEffect(() => {
+    api.getFeed().then(data => setImages(data));
+  }, []);
+  return images;
+};
+```
+
+Denne hooken bruker `getFeed` metoden til APIet vårt for å hente alle bildene i feeden vår. Når serveren har sendt oss dataene, kalles funksjonen inni `then` - og der oppdaterer vi staten vår med den dataen.
+
+> Denne måten å uttrykke asynkronitet - eller det å vente på noe - på, heter promises. Du kan lese litt mer om dem her om du er interessert: https://medium.com/@PangaraWorld/an-introduction-to-understanding-javascript-promises-37eff85b2b08
+
+I denne custom hooken bruker vi flere hooks på en gang - både `useEffect` og `useState`. Det er helt innafor - og noe man gjør ganske ofte.
+
+Vi sender inn et tomt array som andre argument til `useEffect`. Det betyr at denne sideeffekten kun skal kjøres en gang - når siden rendres for første gang. Vi vil jo bare hente listen over bilder når man går inn på siden - ikke hver gang man liker et bilde!
+
+I slutten av custom hooken vår returnerer vi bildene våre. Første gang siden lastes vil denne verdien være `null`, og når dataen har blitt lagret, vil verdien være en liste av bildedetaljer.
+
+I `FeedPage`-komponenten kan vi sette `images`-konstanten til å være lik resultatet fra `useFeed`.
+
+```js
+const images = useFeed();
+```
+
+På samme måte kan vi lage en custom hook som henter akkurat det bildet du klikker deg inn på. Her legger vi også til et dependency array basert på bilde ID'en, slik at 'useImage' som bruker 'getImage', kjører hvis ID'en endrer seg.
+
+```js
+const useImage = id => {
+  const [image, setImage] = React.useState(null);
+  React.useEffect(() => {
+    getImage(id).then(data => setImage(data));
+  }, [id]);
+  return image;
+};
+```
+
+En måte å tenke på `useEffect` er at den synkroniserer tilstand basert på de verdiene du plasserer i dependency arrayet. Hvis en verdi i den lista endrer seg, vel, da må side-effekten kjøres en gang til for at alt skal være riktig.
+
+Denne henter vi i DetailPage komponenten vår.
+
+```js
+const image = useImage(id);
+```
+
+</details>
 
 ### Oppgave 10: Sideeffekt - oppdater likes fra/til backend
 
