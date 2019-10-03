@@ -93,7 +93,7 @@ Du kommer til å se noen emojis i oppgavene. De betyr ca det her:
 
 I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
-Appen kommer til å implementere en forenkla versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave.
+Appen kommer til å implementere en forenklet versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave.
 
 Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål er for enkle!
 
@@ -259,7 +259,7 @@ Hvordan du får til nettopp det er opp til deg - men vi anbefaler at du bruker `
 <MinKomponent>Hei og hallo</MinKomponent>
 ```
 
-, så dukker innholdet mellom taggene (i dette tilfellet "Hei og hallo") opp i denne prop-en.
+så dukker innholdet mellom taggene (i dette tilfellet "Hei og hallo") opp i denne prop-en. Med andre ord: `props.children === 'Hei og Hallo'`.
 
 Dette kan man bruke til å sette sammen flere komponenter, og lage hierarkier, slik som HTML har fra før av.
 
@@ -297,7 +297,26 @@ function Post(props) {
 
 `<Post />`-komponenten vår bruker alt på en gang! Her sender vi inn `props.author` som `children`-propen til `<Author />`-komponenten, etterfulgt av at vi plasserer `Post`'s egne `props.children`-prop under. Til slutt plasserer vi `<Timestamp />`-komponenten nederst, og vidersender `timestamp`-propen.
 
-Henger du med? Hvis ikke er det helt okei. Spør spørsmål til de som går rundt og hjelper.
+Hele `<App />`-koden blir slik:
+
+```js
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <div className="images">
+        {images.map(image => (
+          <Post author={image.author} timestamp={image.timestamp}>
+            <Image key={image.id} src={image.url} alt={image.description} />
+          </Post>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+Henger du med? Hvis ikke er det helt okei. Still spørsmål til de som går rundt og hjelper.
 
 </details>
 
@@ -326,7 +345,32 @@ Vi starter med å installere biblioteket `react-router-dom`, som er den mest pop
 
 Dette biblioteket er egentlig ganske enkelt. Man spesifiserer en komponent, og for hvilke URLer man vil at denne komponenten skal vises.
 
-Det aller første vi må gjøre er å wrappe hele App-komponenten vår i en `<BrowserRouter />`-komponent.
+Vi starter med å refaktorere koden som lister ut bilder i en ny komponent - `<FeedPage />`.
+
+```js
+function FeedPage() {
+  return (
+    <div className="images">
+      {images.map(image => (
+        <Post author={image.author} timestamp={image.timestamp}>
+          <Image key={image.id} src={image.url} alt={image.description} />
+        </Post>
+      ))}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <FeedPage />
+    </div>
+  );
+}
+```
+
+Dette ser jo egentlig ganske ryddig ut! Neste vi må gjøre er å wrappe hele App-komponenten vår i en `<BrowserRouter />`-komponent.
 
 ```js
 function App() {
@@ -349,14 +393,16 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Route exact path="/" component={FeedPage} />
+        <Route exact path="/">
+          <FeedPage />
+        </Route>
       </div>
     </BrowserRouter>
   );
 }
 ```
 
-Her sender vi inn `path` som er URLen vi vil matche, `exact` for at vi bare vil vise denne siden når urlen er _eksakt_ "/" og `component` mottar den komponenten vi vil vise når URLen matcher.
+Her sender vi inn `path` som er URLen vi vil "matche", `exact` for at vi bare vil vise denne siden når urlen er _eksakt_ "/", og så sender vi inn det vi vil vise som `children` når URLen matcher.
 
 Det gir ikke mye mening å bare ha en rute når man har en router, så la oss legge til detaljsiden også. Vi vil vise detaljsiden når URLen er "/post/1", "/post/2" osv - da kan vi bruke en såkalt "route parameter", og spesifisere path-en som "/path/:id".
 
@@ -366,15 +412,36 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Route exact path="/" component={FeedPage} />
-        <Route exact path="/post/:id" component={DetailPage} />
+        <Route exact path="/">
+          <FeedPage />
+        </Route>
+        <Route exact path="/post/:id">
+          <DetailPage />
+        </Route>
       </div>
     </BrowserRouter>
   );
 }
 ```
 
-Som du ser av koden i `DetailPage`, kan man hente ut verdien av `:id` i `props.match.params.id` - hvor `id` er `tekstenEtterKolon` i `path`-parameteren. Komponenten du sender inn til Route mottar nemlig endel ekstra props fra `react-router-dom` - du kan lese mer om dem her: https://reacttraining.com/react-router/web/api/Route/route-props
+`DetailPage` ser ganske lik ut som `FeedPage`, bare at den lister ut en enkel side:
+
+```js
+import { useParams } from 'react-router-dom';
+function DetailPage() {
+  const { id } = useParams();
+  const image = images.find(image => image.id === id);
+  return (
+    <div className="detail">
+      <Post author={image.author} timestamp={image.timestamp}>
+        <Image key={image.id} src={image.url} alt={image.description} />
+      </Post>
+    </div>
+  );
+}
+```
+
+Som du ser av koden over, kan man hente ut verdien av `:id` fra funksjonen `useParams` - hvor `id` er `tekstenEtterKolon` i `path`-parameteret. Så bruker vi den IDen til å slå opp riktig element i `images`-arrayet.
 
 For at det skal være noe vits med slike ruter, trenger vi å lage noen lenker mellom dem også. Der må vi bruke nok en komponent fra `react-router-dom` - nemlig `<Link />`. Du kan se dokumentasjonen her: https://reacttraining.com/react-router/web/api/Link
 
@@ -414,7 +481,7 @@ Til sammen har vi nå en app med to "sider". En feed-side, som egentlig bare er 
 
 ## Del 2: Tilstand og sideeffekter
 
-Mye av det vi har gjort til nå kunne vi fått til med et vanlig template-rammeverk. Ingenting endrer seg jo! Heldigvis er det nettopp her React skinner.
+Mye av det vi har gjort til nå kunne vi fått til med mye mindre kode, og helt uten et rammeverk. Ingenting endrer seg jo! Heldigvis er det nettopp her React skinner.
 
 React har innebygget funksjonalitet for å huske på tilstand, fyre av side-effekter og masse annet. Denne funksjonaliteten kalles for "hooks".
 
@@ -513,7 +580,7 @@ function Likes(props) {
     <div className="likes">
       Likes: {likes}{' '}
       <button className="like-button" onClick={incrementLikes}>
-        💛
+        👍
       </button>
     </div>
   );
@@ -565,15 +632,14 @@ React.useEffect(() => {
 });
 ```
 
-Når du navigerer fra ett bilde til et annet ser du at tittelen oppdaterer seg. Du må riktignok åpne panelet til høyre i ene egen fane for å se det.
+Når du navigerer fra ett bilde til et annet ser du at tittelen oppdaterer seg. Om du jobber i CodeSandbox, må du riktignok åpne panelet til høyre i ene egen fane for å se det.s
 
 Sluttresultatet ser slik ut:
 
 ```js
 function DetailPage(props) {
-  const image = images.find(
-    image => image.id === Number(props.match.params.id),
-  );
+  const { id } = useParams();
+  const image = images.find(image => image.id === id);
   React.useEffect(() => {
     document.title = `📷 av ${image.user}`;
   });
@@ -595,7 +661,9 @@ Oppgave 8A innførte en liten bug - når man returnerer til feed-siden (hovedsid
 
 > 💡 En custom hook er bare en helt vanlig funksjon som starter med `use`, og som kaller en eller flere hooks. Det er ikke noe mer magi!
 
-🏆 Bruk din første custom hook både på `DetailsPage` og `FeedPage`.
+> 💡 Husker du `useParams` fra routingen i oppgave 6? Det er en custom hook det også!
+
+🏆 Bruk din første custom hook både på `DetailPage` og `FeedPage`.
 
 <details><summary>🚨 Løsningsforslag</summary>
 Denne oppgaven er nesten bare copy paste.
