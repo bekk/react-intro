@@ -250,7 +250,7 @@ Post-komponenten skal skrive ut følgende DOM-struktur:
 
 Hvordan du får til nettopp det er opp til deg - men vi anbefaler at du bruker `children` prop-en. Du kan lese mer om `props.children` i [dokumentasjonen til React](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx).
 
-> 💡 Vi kan anbefale funksjonen [`distanceInWordsToNow`](https://date-fns.org/v1.9.0/docs/distanceInWordsToNow) fra biblioteket `date-fns` for å vise timestamp-informasjonen.
+> 💡 Vi kan anbefale funksjonen [`formatDistanceToNow`](https://date-fns.org/v2.4.1/docs/formatDistanceToNow) fra biblioteket `date-fns` for å vise timestamp-informasjonen.
 
 <details><summary>🚨Løsningsforslag</summary>
 `children` er en spesiell prop. Når du skrive koden din slik:
@@ -268,12 +268,12 @@ I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
 ```js
 function Timestamp(props) {
   return (
-    <div className="timestamp">{distanceInWordsToNow(props.timestamp)} ago</div>
+    <div className="timestamp">{formatDistanceToNow(props.timestamp)} ago</div>
   );
 }
 ```
 
-Her er det ikke veldig mye nytt. Vi kaller funksjonen `distanceInWordsToNow` for å gjøre om et dato-objekt til en tekststreng.
+Her er det ikke veldig mye nytt. Vi kaller funksjonen `formatDistanceToNow` for å gjøre om et dato-objekt til en tekststreng.
 
 ```js
 function Author(props) {
@@ -306,7 +306,7 @@ function App() {
       <Header />
       <div className="images">
         {images.map(image => (
-          <Post author={image.author} timestamp={image.timestamp}>
+          <Post author={image.user} timestamp={image.timestamp}>
             <Image key={image.id} src={image.url} alt={image.description} />
           </Post>
         ))}
@@ -352,7 +352,7 @@ function FeedPage() {
   return (
     <div className="images">
       {images.map(image => (
-        <Post author={image.author} timestamp={image.timestamp}>
+        <Post author={image.user} timestamp={image.timestamp}>
           <Image key={image.id} src={image.url} alt={image.description} />
         </Post>
       ))}
@@ -433,7 +433,7 @@ function DetailPage() {
   const image = images.find(image => image.id === id);
   return (
     <div className="detail">
-      <Post author={image.author} timestamp={image.timestamp}>
+      <Post author={image.user} timestamp={image.timestamp}>
         <Image key={image.id} src={image.url} alt={image.description} />
       </Post>
     </div>
@@ -474,6 +474,8 @@ function FeedPage(props) {
   );
 }
 ```
+
+> 💡 Legg merke til at vi bruker "bakoverfnutter" når vi setter sammen lenken i `<Link to />`-propen. Dette kalles en "template string", og lar deg interpolere verdier i en string. Du kan lese mer om dem på [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
 Til sammen har vi nå en app med to "sider". En feed-side, som egentlig bare er en feed-komponent som bare vises når URLen er "/", og en detaljside, som er en detalj-komponent som bare vises når URLen er "/post/1" osv.
 
@@ -542,7 +544,7 @@ Siden vi nå skal innføre en tilstand (state) i appen vår, trenger vi å bruke
 
 ```js
 function Likes(props) {
-  const [likes, setLikes] = React.setState(0);
+  const [likes, setLikes] = React.useState(0);
   return <div className="likes" />;
 }
 ```
@@ -550,7 +552,7 @@ function Likes(props) {
 Du kan også skrive det på denne måten om du vil:
 
 ```js
-const state = React.setState(0);
+const state = React.useState(0);
 const likes = state[0];
 const setLikes = state[1];
 ```
@@ -680,6 +682,20 @@ export default function useTitle(title) {
 }
 ```
 
+Eller som pilfunksjon:
+
+```js
+import React from 'react';
+
+const useTitle = (title) => {
+  React.useEffect(() => {
+    document.title = title;
+  });
+};
+
+export default useTitle;
+```
+
 Med andre ord så lager vi en funksjon som kaller en hook. Dette er hva man kaller en custom hook.
 
 Vi kan nå endre koden vår i `DetailPage` til å kalle vår nye hook:
@@ -746,6 +762,8 @@ Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjekte
 For å hente bildene lager vi en ny custom hook `useFeed` som kan implementeres slik:
 
 ```js
+import * as api from './server';
+
 const useFeed = () => {
   const [images, setImages] = React.useState(null);
   React.useEffect(() => {
@@ -1019,7 +1037,7 @@ export const Comment = ({ comment }) => {
 };
 ```
 
-Det kan være lurt å ha en "container"-komponent som innkapsler underkomponenter for bl.a. å ha en felles, overordnet styling på komponentene og gjøre det hele mer ryddig, i dette tilfellet ´Comments.js´. Denne tar inn hele arrayet med kommentarer som children, iterer over disse og rendrer `Comment` for hver av kommentarene. I tillegg rendrer den `CommentForm` som håndterer skriving av nye kommentarer.`Comment` skal kun rendres hvis det finnes noen kommentarer, `CommentForm` skal alltid rendres (scroll lengre ned for forslag til hvordan den kan implementeres).
+Det kan være lurt å ha en "container"-komponent som innkapsler underkomponenter for bl.a. å ha en felles, overordnet styling på komponentene og gjøre det hele mer ryddig, i dette tilfellet ´Comments.js´. Denne tar inn hele arrayet med kommentarer som children, itererer over disse og rendrer `Comment` for hver av kommentarene. I tillegg rendrer den `CommentForm` som håndterer skriving av nye kommentarer.`Comment` skal kun rendres hvis det finnes noen kommentarer, `CommentForm` skal alltid rendres (scroll lengre ned for forslag til hvordan den kan implementeres).
 
 ```js
 export const Comments = props => {
