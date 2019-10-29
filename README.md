@@ -609,7 +609,9 @@ Det var det! Vi kan nå like bildene våre! Om det bare var en måte å la serve
 
 ### Oppgave 8: Sideeffekter
 
-I oppgave 8 skal vi fokusere på å utføre forskjellige side-effekter. Side-effekter er handlinger som påvirker noe utenfor "React-verdenen" - som å kalle DOM-APIer, hente data og så videre
+React-komponenter er egentlig ganske vanlige "rene" eller "pure" funksjoner. De blir kalt med noen argumenter (props), og returnerer litt JSX (viewet vårt). Dette gjør React ganske enkelt å forstå seg på. Men av og til trenger vi å påvirke noe utenfor komponenten vår også.
+
+I oppgave 8 skal vi fokusere på å utføre forskjellige side-effekter. Side-effekter er handlinger som påvirker noe utenfor "React-verdenen" - som å kalle DOM-APIer, hente data og så videre.
 
 ### 8A: Oppdater tittel
 
