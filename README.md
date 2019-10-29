@@ -466,9 +466,13 @@ function FeedPage(props) {
   return (
     <div className="posts">
       {images.map(image => (
-        <Post key={image.id} author={image.username} timestamp={image.createdDate}>
+        <Post
+          key={image.id}
+          author={image.username}
+          timestamp={image.createdDate}
+        >
           <Link to={`/post/${image.id}`}>
-            <Image src={image.url} alt={imag  e.description} />
+            <Image src={image.url} alt={image.description} />
           </Link>
         </Post>
       ))}
