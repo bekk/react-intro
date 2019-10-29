@@ -268,7 +268,9 @@ I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
 ```js
 function Timestamp(props) {
   return (
-    <div className="timestamp">{formatDistanceToNow(props.timestamp)} ago</div>
+    <div className="timestamp">
+      {formatDistanceToNow(props.createdDate)} ago
+    </div>
   );
 }
 ```
@@ -289,7 +291,7 @@ function Post(props) {
     <div className="post">
       <Author>{props.author}</Author>
       {props.children}
-      <Timestamp timestamp={props.timestamp} />
+      <Timestamp timestamp={props.createdDate} />
     </div>
   );
 }
@@ -306,7 +308,7 @@ function App() {
       <Header />
       <div className="images">
         {images.map(image => (
-          <Post author={image.user} timestamp={image.timestamp}>
+          <Post author={image.username} timestamp={image.createdDate}>
             <Image key={image.id} src={image.url} alt={image.description} />
           </Post>
         ))}
@@ -352,7 +354,7 @@ function FeedPage() {
   return (
     <div className="images">
       {images.map(image => (
-        <Post author={image.user} timestamp={image.timestamp}>
+        <Post author={image.username} timestamp={image.createdDate}>
           <Image key={image.id} src={image.url} alt={image.description} />
         </Post>
       ))}
@@ -433,7 +435,7 @@ function DetailPage() {
   const image = images.find(image => image.id === id);
   return (
     <div className="detail">
-      <Post author={image.user} timestamp={image.timestamp}>
+      <Post author={image.username} timestamp={image.createdDate}>
         <Image key={image.id} src={image.url} alt={image.description} />
       </Post>
     </div>
@@ -464,7 +466,7 @@ function FeedPage(props) {
   return (
     <div className="posts">
       {images.map(image => (
-        <Post key={image.id} author={image.user} timestamp={image.timestamp}>
+        <Post key={image.id} author={image.username} timestamp={image.createdDate}>
           <Link to={`/post/${image.id}`}>
             <Image src={image.url} alt={imag  e.description} />
           </Link>
@@ -532,7 +534,7 @@ export default function Post(props) {
       <Author>{props.author}</Author>
       {props.children}
       <div className="post-details">
-        <Timestamp timestamp={props.timestamp} />
+        <Timestamp timestamp={props.createdDate} />
         <Likes /> {/* ⬅️ her!*/}
       </div>
     </div>
@@ -630,7 +632,7 @@ I vårt tilfelle vil vi at tekst-strengen skal gjenspeile hvilken bruker som har
 
 ```js
 React.useEffect(() => {
-  document.title = `📷 av ${image.user}`;
+  document.title = `📷 av ${image.username}`;
 });
 ```
 
@@ -643,11 +645,11 @@ function DetailPage(props) {
   const { id } = useParams();
   const image = images.find(image => image.id === id);
   React.useEffect(() => {
-    document.title = `📷 av ${image.user}`;
+    document.title = `📷 av ${image.username}`;
   });
   return (
     <div className="detail">
-      <Post author={image.user} timestamp={image.timestamp}>
+      <Post author={image.username} timestamp={image.createdDate}>
         <Image src={image.url} alt={image.description} />
       </Post>
     </div>
@@ -707,7 +709,7 @@ export default function DetailPage(props) {
   const image = images.find(
     image => image.id === Number(props.match.params.id),
   );
-  useTitle(`📷 av ${image.user}`);
+  useTitle(`📷 av ${image.username}`);
   return (...);
 ```
 
@@ -1078,7 +1080,7 @@ const Post = props => {
       <Author>{props.author}</Author>
       {props.children}
       <div className="post-details">
-        <Timestamp timestamp={props.timestamp} />
+        <Timestamp timestamp={props.createdDate} />
         <Likes />
       </div>
       <Comments imageId={props.imageId} comments={props.comments} />
