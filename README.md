@@ -513,7 +513,7 @@ La oss gjøre Bekkstagram litt mer avhengighetsskapende ved å introdusere likes
 
 > 💡 Du kan sende inn en funksjon til propen `onClick` som kjøres hver gang noen klikker på knappen.
 
-> 💡 Når man sender inn en funksjon, så må man huske på å _ikke_ kalle den med en gang! Med andre ord - istedenfor å skrive `onClick={handleClick()}`, så skriver du `onClick={handleClick}`.
+> 💡 Når man sender inn en funksjon, så må man huske på å _ikke_ kalle den med en gang! Med andre ord - istedenfor å skrive `onClick={handleClick()}`, så skriver du `onClick={handleClick}`. Når noen klikker på knappen vår, er det React sin jobb å kalle `handleClick`-funksjonen vår.
 
 > 💡 `React.useState` kan enten motta en vanlig verdi eller en funksjon. Hvis du sender inn en funksjon, vil funksjonen bli kalt med "nåværende tilstand", og returnerer du bare "neste tilstand". Dette er perfekt for når neste tilstand baserer seg på forrige tilstand - som i denne oppgaven.
 
