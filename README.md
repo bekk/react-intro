@@ -837,7 +837,7 @@ Det samme gjelder her - om vi får tilbake `null` fra `useImage`, så må vi pas
 
 Ingen bilder er like kule som sine egne. I denne oppgaven skal du prøve å laste opp dine egne.
 
-> 💡 Før du begynner denne oppgaven så anbefaler vi at du åpner filen "sett-brukernavnet-ditt-her.js", og gir deg selv et unikt brukernavn!
+> 💡 Før du begynner denne oppgaven så anbefaler vi at du åpner filen `sett-brukernavnet-ditt-her.js`", og gir deg selv et unikt brukernavn!
 
 For å gjøre det enkelt, lar vi deg kun legge til bilder som allerede ligger på internett. Finn en URL til et bilde du har rettighetene til, og vis det på siden!
 
