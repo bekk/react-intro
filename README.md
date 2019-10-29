@@ -687,7 +687,7 @@ Eller som pilfunksjon:
 ```js
 import React from 'react';
 
-const useTitle = (title) => {
+const useTitle = title => {
   React.useEffect(() => {
     document.title = title;
   });
@@ -755,7 +755,7 @@ Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjekte
 
 > 💡 For å bare kjøre `useEffect` når man laster siden, så kan du spesifisere et tomt dependency array
 
-> 💡 Du kan lagre dataen med `useState`.
+> 💡 Du kan lagre dataen i en `useState`.
 
 <details><summary>🚨 Løsningsforslag</summary>
 
@@ -789,6 +789,18 @@ I `FeedPage`-komponenten kan vi sette `images`-konstanten til å være lik resul
 const images = useFeed();
 ```
 
+Siden `images` kan være `null` nå, så er det viktig at vi sjekker om vi har bilder eller ei. Det kan vi gjøre slik:
+
+```js
+const images = useFeed();
+
+if (!images) {
+  return null;
+}
+```
+
+Hvis du vil så kan du implementere en spinner her også - men det lar vi være en ekstraoppgave for den spesielt interesserte.
+
 På samme måte kan vi lage en custom hook som henter akkurat det bildet du klikker deg inn på. Her legger vi også til et dependency array basert på bilde ID'en, slik at 'useImage' som bruker 'getImage', kjører hvis ID'en endrer seg.
 
 ```js
@@ -808,6 +820,8 @@ Denne henter vi i DetailPage komponenten vår.
 ```js
 const image = useImage(id);
 ```
+
+Det samme gjelder her - om vi får tilbake `null` fra `useImage`, så må vi passe på å returnere `null` fra komponenten vår også.
 
 </details>
 
