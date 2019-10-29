@@ -324,19 +324,19 @@ Henger du med? Hvis ikke er det helt okei. Still spørsmål til de som går rund
 
 Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router-dom` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
 
+> 💡 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
+
 🏆 Lag to nye komponenter - `FeedPage` og `DetailPage`. `FeedPage` bør vise listen over bilder du hadde fra før av. `DetailPage` bør vise bildet som har IDen i URLen.
 
 Bruk `BrowserRouter`- og `Route`-komponentene fra `react-router` til å spesifisere URLene de forskjellige sidene skal vises på. `FeedPage` bør vises på `/`, og `DetailPage` bør vises på `/post/:id`.
+
+> 💡 `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`. Du kan hente ut verdien av `:id` med funksjonen [`useParams()`](https://reacttraining.com/react-router/web/api/Hooks/useparams).
 
 🏆 Legg på en lenke rundt hvert bilde, slik at man kan navigere til detalj-siden for det bildet. URLen burde være `/post/iden-til-det-bildet`.
 
 🏆 Legg på en lenke i `<h1 />`-taggen, slik at man kan trykke på "logoen" for å returnere til feeden igjen.
 
 > 💡 For interne lenker er [`Link`](https://reacttraining.com/react-router/web/api/Link)-komponenten fra `react-router-dom` fin å bruke. For eksterne lenker ut av appen din kan du bruke vanlige `<a href />`-tags.
-
-> 💡 `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`. Du kan hente ut verdien av `:id` med funksjonen [`useParams()`](https://reacttraining.com/react-router/web/api/Hooks/useparams).
-
-> 💡 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
 
 <details><summary>🚨Løsningsforslag</summary>
 I denne oppgaven skal vi introdusere routing - det å kunne ha flere forskjellige URLer, og vise forskjellig innhold på hver av sidene.
