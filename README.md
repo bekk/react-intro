@@ -755,7 +755,7 @@ export default function useTitle(title) {
 
 Akkurat nå leser vi bare statisk data som vi har hardkodet inn i appen. La oss hente data fra APIet vårt!
 
-Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjektet. Den returnerer et Promise som etterhvert returnerer en liste med bilder.
+Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjektet. Den returnerer et [Promise](https://medium.com/@PangaraWorld/an-introduction-to-understanding-javascript-promises-37eff85b2b08), som etterhvert returnerer en liste med bilder.
 
 🏆 Hent en liste med bilder med `getFeed` funksjonen, og list dem ut på `FeedPage`.
 
@@ -763,7 +763,7 @@ Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjekte
 
 > 💡 For å bare kjøre `useEffect` når man laster siden, så kan du spesifisere et tomt dependency array
 
-> 💡 Du kan lagre dataen i en `useState`.
+> 💡 Du kan lagre dataen i en `useState`-hook.
 
 <details><summary>🚨 Løsningsforslag</summary>
 
