@@ -326,7 +326,7 @@ Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss.
 
 🏆 Lag to nye komponenter - `FeedPage` og `DetailPage`. `FeedPage` bør vise listen over bilder du hadde fra før av. `DetailPage` bør vise bildet som har IDen i URLen.
 
-Bruk `Router`- og `Route`-komponentene fra `react-router` til å spesifisere URLene de forskjellige sidene skal vises på. `FeedPage` bør vises på `/`, og `DetailPage` bør vises på `/post/:id`.
+Bruk `BrowserRouter`- og `Route`-komponentene fra `react-router` til å spesifisere URLene de forskjellige sidene skal vises på. `FeedPage` bør vises på `/`, og `DetailPage` bør vises på `/post/:id`.
 
 🏆 Legg på en lenke rundt hvert bilde, slik at man kan navigere til detalj-siden for det bildet. URLen burde være `/post/iden-til-det-bildet`.
 
