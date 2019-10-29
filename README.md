@@ -736,6 +736,8 @@ Custom Hooken vår ser fin ut - men den setter tittelen hver eneste gang vi rend
 
 🏆 Oppdater `useTitle` med et `dependency array` som andre argument. ([Her er dokumentasjonen](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects))
 
+> 💡 Konseptuelt så kan du tenke på dependency-arrayet som en liste over ting, som, hvis de endres, krever at man kjører funksjonen som sendes inn til `React.useEffect` en gang til. Man kan kalle det å "synkronisere en effekt med tilstanden". Lettere forklart: Om en ting i dependency-arrayet endrer seg, kjør funksjonen på nytt med nye verdier.
+
 <details><summary>🚨 Løsningsforslag</summary>
 Det eneste vi trenger å gjøre her er å legge til et array som andre argument i useEffect. Bruker man et tomt array trigges useEffect kun ved første render. Vi vil derimot at useEffect trigges hver gang `title` endrer seg, derfor legger vi `title` inni arrayet.
 
