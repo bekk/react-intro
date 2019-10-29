@@ -322,7 +322,7 @@ Henger du med? Hvis ikke er det helt okei. Still spørsmål til de som går rund
 
 ### Oppgave 6: Vis ett og ett bilde
 
-Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
+Alle de kule appene har forskjellige sider og URLer. Det burde vi også få oss. I denne oppgaven skal vi bruke biblioteket `react-router-dom` til å lage to forskjellige sider i applikasjonen vår - `FeedPage` og `DetailPage`.
 
 🏆 Lag to nye komponenter - `FeedPage` og `DetailPage`. `FeedPage` bør vise listen over bilder du hadde fra før av. `DetailPage` bør vise bildet som har IDen i URLen.
 
@@ -332,16 +332,16 @@ Bruk `Router`- og `Route`-komponentene fra `react-router` til å spesifisere URL
 
 🏆 Legg på en lenke i `<h1 />`-taggen, slik at man kan trykke på "logoen" for å returnere til feeden igjen.
 
-> 💡 For interne lenker er `Link`-komponenten fra `react-router` fin å bruke. For eksterne lenker ut av appen din kan du bruke vanlige `<a href />`-tags.
+> 💡 For interne lenker er [`Link`](https://reacttraining.com/react-router/web/api/Link)-komponenten fra `react-router-dom` fin å bruke. For eksterne lenker ut av appen din kan du bruke vanlige `<a href />`-tags.
 
-> 💡 `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`, og sende henholdsvis "1", "1337" og "ett-eller-annet" i `props.match.params.id`.
+> 💡 `/post/:id` er en såkalt dynamisk route. Den vil treffe alle URLer på formen `/post/1`, `/post/1337`, `/post/ett-eller-annet`. Du kan hente ut verdien av `:id` med funksjonen [`useParams()`](https://reacttraining.com/react-router/web/api/Hooks/useparams).
 
 > 💡 Begynn med å ta en titt på [dokumentasjonen til React Router](https://reacttraining.com/react-router/web/guides/quick-start) for en rask introduksjon til de forskjellige funksjonene du finner der.
 
 <details><summary>🚨Løsningsforslag</summary>
 I denne oppgaven skal vi introdusere routing - det å kunne ha flere forskjellige URLer, og vise forskjellig innhold på hver av sidene.
 
-Vi starter med å installere biblioteket `react-router-dom`, som er den mest populære måten å løse dette på i dag. Du kan finne dokumentasjonen på https://reacttraining.com/react-router/web/guides/quick-start.
+Vi starter med å installere biblioteket `react-router-dom`, som er den mest populære måten å løse dette på i dag. Du kan finne dokumentasjonen på https://reacttraining.com/react-router/web/guides/quick-start. Det er allerede lagt til `package.json` for deg, så du trenger ikke slenge det på.
 
 Dette biblioteket er egentlig ganske enkelt. Man spesifiserer en komponent, og for hvilke URLer man vil at denne komponenten skal vises.
 
