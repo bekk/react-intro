@@ -308,8 +308,8 @@ function App() {
       <Header />
       <div className="images">
         {images.map(image => (
-          <Post author={image.username} timestamp={image.createdDate}>
-            <Image key={image.id} src={image.url} alt={image.description} />
+          <Post key={image.id} author={image.username} timestamp={image.createdDate}>
+            <Image src={image.url} alt={image.description} />
           </Post>
         ))}
       </div>
