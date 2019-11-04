@@ -275,9 +275,7 @@ I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
 ```js
 function Timestamp(props) {
   return (
-    <div className="timestamp">
-      {formatDistanceToNow(props.createdDate)} ago
-    </div>
+    <div className="timestamp">{formatDistanceToNow(props.timestamp)} ago</div>
   );
 }
 ```
@@ -298,13 +296,13 @@ function Post(props) {
     <div className="post">
       <Author>{props.author}</Author>
       {props.children}
-      <Timestamp timestamp={props.createdDate} />
+      <Timestamp timestamp={props.timestamp} />
     </div>
   );
 }
 ```
 
-`<Post />`-komponenten vår bruker alt på en gang! Her sender vi inn `props.author` som `children`-propen til `<Author />`-komponenten, etterfulgt av at vi plasserer `Post`'s egne `props.children`-prop under. Til slutt plasserer vi `<Timestamp />`-komponenten nederst, og vidersender `timestamp`-propen.
+`<Post />`-komponenten vår bruker alt på en gang! Her sender vi inn `props.author` som `children`-propen til `<Author />`-komponenten, etterfulgt av at vi plasserer `Post`'s egne `props.children`-prop under. Til slutt plasserer vi `<Timestamp />`-komponenten nederst, og videresender `createdDate`-propen.
 
 Hele `<App />`-koden blir slik:
 
