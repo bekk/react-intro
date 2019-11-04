@@ -28,6 +28,8 @@ Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du al
 
 ### React på 2 minutter
 
+<details><summary>Klikk her for en rask introduksjon</summary>
+
 React baserer seg på konseptet om at brukergrensesnittet ditt er en funksjon av data. Gitt litt data, så vil React gi deg tilbake det samme brukergrensesnittet. React kaller denne dataen `props` (en forkortelse for properties).
 
 Med andre ord:
@@ -67,6 +69,8 @@ Du kommer nok sjelden til å skrive kode som dette for hånd, da det å bruke JS
 Du kan (og bør!) lese mer om JSX i [Reacts dokumentasjon](https://reactjs.org/docs/introducing-jsx.html).
 
 Dette er i svært korte trekk det grunnleggende du trenger å vite om React. I løpet av oppgavene kommer du til å møte på mange flere konsepter, som tilstand (state), sideeffekter og kontekster - men nå vet du i alle fall litt om det mest grunnleggende!
+
+</details>
 
 # Om workshopen
 
