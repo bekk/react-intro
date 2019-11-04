@@ -80,7 +80,7 @@ Workshopen består av et sett med oppgaver, som du kan løse lokalt på din egen
 
 Du trenger ikke å ha noe innstallert for å komme i gang med denne workshopen - kun en nettleser. Gå inn på [denne CodeSandbox-lenken](https://codesandbox.io/s/github/bekk/react-intro), så får du opp en moderne kode-editor, en live-oppdatert readme og alt du trenger rett i nettleseren.
 
-Vi anbefaler å jobbe i nettleseren, så du slipper å bruke tid på oppsett og slikt.
+**Vi anbefaler å jobbe i nettleseren**, så du slipper å bruke tid på oppsett og slikt.
 
 Hvis du allikevel _vil_ løse oppgavene lokalt, kreves det at du har `node` installert. Hvis du ikke har det, kan du laste det ned fra [nodejs.org](https://nodejs.org).
 Du trenger også `git`, som du kan laste ned [herifra](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
