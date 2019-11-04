@@ -275,9 +275,7 @@ I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
 ```js
 function Timestamp(props) {
   return (
-    <div className="timestamp">
-      {formatDistanceToNow(props.createdDate)} ago
-    </div>
+    <div className="timestamp">{formatDistanceToNow(props.timestamp)} ago</div>
   );
 }
 ```
