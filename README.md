@@ -72,14 +72,17 @@ Dette er i svært korte trekk det grunnleggende du trenger å vite om React. I l
 
 Workshopen består av et sett med oppgaver, som du kan løse lokalt på din egen maskin eller i en CodeSandbox.
 
+## Jobbe i nettleser eller på din egen maskin?
+
+Du trenger ikke å ha noe innstallert for å komme i gang med denne workshopen - kun en nettleser. Gå inn på [denne CodeSandbox-lenken](https://codesandbox.io/s/github/bekk/react-intro), så får du opp en moderne kode-editor, en live-oppdatert readme og alt du trenger rett i nettleseren.
+
+Vi anbefaler å jobbe i nettleseren, så du slipper å bruke tid på oppsett og slikt.
+
+Hvis du allikevel _vil_ løse oppgavene lokalt, kreves det at du har `node` installert. Hvis du ikke har det, kan du laste det ned fra [nodejs.org](https://nodejs.org).
+Du trenger også `git`, som du kan laste ned [herifra](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+Du vil måtte jobbbe litt i terminalen også. Om du ikke er så bevandret i den verdenen, kan vi anbefale [denne artikkelen](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101).
+
 Hvis du vil gjøre oppgavene lokalt, kan du åpne terminalen din, laste ned repoet med `git clone git@github.com:bekk/react-intro.git` og kjøre `npm install`. Du kan starte en utviklingsserver ved å kjøre `npm start` - denne vil laste inn appen din på nytt hver gang du gjør en endring.
-
-> ## ⚠️ Husk! Installer node og git
->
-> Hvis du vil løse oppgavene lokalt, kreves det at du har `node` installert. Hvis du ikke har det, kan du laste det ned fra [nodejs.org](https://nodejs.org).
-> Du trenger også `git`, som du kan laste ned [herifra](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
-Hvis du vil løse oppgavene i nettleseren, kan du gjøre det også. Gå inn på [denne CodeSandbox-lenken](https://codesandbox.io/s/github/bekk/react-intro), så får du opp en editor med live-preview og alt du trenger rett i nettleseren.
 
 ## Emoji-guide
 
@@ -308,7 +311,11 @@ function App() {
       <Header />
       <div className="images">
         {images.map(image => (
-          <Post key={image.id} author={image.username} timestamp={image.createdDate}>
+          <Post
+            key={image.id}
+            author={image.username}
+            timestamp={image.createdDate}
+          >
             <Image src={image.url} alt={image.description} />
           </Post>
         ))}
