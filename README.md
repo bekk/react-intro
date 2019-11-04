@@ -98,7 +98,7 @@ I denne workshopen skal vi lage den neste SoMe-hypen: **Bekkstagram**! 🎉
 
 Appen kommer til å implementere en forenklet versjon av Instagram, hvor du kan legge ut bilder, og like og kommentere andre sine bilder. Og ta det med ro - vi gjør det hele steg for steg, med gode forklaringer i hver oppgave.
 
-Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål er for enkle!
+Trenger du hjelp, så er det bare å rekke opp hånda. Husk – ingen spørsmål er for enkle, og det eneste dumme er å sitte og lure i 5 minutter før du spør!
 
 ## Del 1: React 101 - De grunnleggende byggesteinene!
 
