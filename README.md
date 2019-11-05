@@ -954,8 +954,11 @@ export const AddImage = props => {
   const [imageUrl, setImageUrl] = useState('');
   const [imageDescription, setImageDescription] = useState('');
 
-  const addImage = async (imageUrl, imageDescription) => {
-    const imageResponse = await uploadImage(imageUrl, imageDescription);
+  const addImage = async (url, description) => {
+    const imageResponse = await uploadImage({
+      url,
+      description;
+    });
     if (!imageResponse) {
       return;
     }
@@ -1088,7 +1091,7 @@ export const Comments = props => {
 };
 ```
 
-´Comments.js´ kan vi rendre i ´Post´-komponenten vår. Kommentarene har vi automatisk tilgang til etter at vi har hentet alle bildene med API'et, da hvert bildeobjekt har et `comments`-array. Vi sender også med bilde-id'en som en egen prop for senere å kunne hente kommentarene fra backenden hvis dette skulle endre seg (ved at noen legger til nye kommentarer).
+`Comments.js` kan vi rendre i `Post`-komponenten vår. Kommentarene har vi automatisk tilgang til etter at vi har hentet alle bildene med API'et, da hvert bildeobjekt har et `comments`-array. Vi sender også med bilde-id'en som en egen prop for senere å kunne hente kommentarene fra backenden hvis dette skulle endre seg (ved at noen legger til nye kommentarer).
 
 ```js
 const Post = props => {
@@ -1119,7 +1122,7 @@ En validering som ikke tillater å poste en kommentar med mindre man har skrevet
 export const CommentForm = props => {
   const [comment, setComment] = useState('');
 
-  function onCommentSubmit() {
+  async function onCommentSubmit() {
     if (comment.length === 0) {
       return;
     }
@@ -1177,16 +1180,14 @@ export const Comments = props => {
 Endre `onCommentSubmit()` i `<CommentForm>` til.
 
 ```js
-const onCommentSubmit = async () => {
+async function onCommentSubmit() {
   const commentsResponse = await putComment(props.imageId, comment);
   props.addComment(commentsResponse);
   setComment('');
-};
+}
 ```
 
 Viktig å merke seg await'en, siden `putComment()` er en async funksjon må vi vente på svar før vi fortsetter.
-
-`const onCommentSubmit = async () => {}` er det samme som å skrive `async function onCommentSubmit() {}`.
 
 </details>
 
