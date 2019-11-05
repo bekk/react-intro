@@ -943,7 +943,7 @@ Hele den nye `<AddImage>`-komponenten:
 
 ```js
 import React, { useState } from 'react';
-import { postImage } from '../api';
+import { postImage } from './server';
 import { FaCameraRetro } from 'react-icons/fa';
 import { Dialog } from '@reach/dialog';
 
@@ -1142,7 +1142,7 @@ export const CommentForm = props => {
 
 Du legger kanskje merke til at du ikke får opp kommentaren du la til før du refreshet siden?
 
-Vi kan løse dette ved å innføre state i `<Comments>` og lage en `addComment`-funksjon som setter denne staten, som vi igjen sender med til `<CommentForm>`-komponenten som kan kalle denne funksjonen når vi legger til en kommentar. Istedenfor å rendre propsene `<Comments>` mottar direkte rendrer vi heller denne staten. Derfor, når `<CommentForm>` endrer staten til `<Comments>`, vil det trigge en re-render av `<Comments>` med oppdatert comments-array siden staten har endret seg. Ved bruk av hooks/useState trigges det nemlig en re-render av komponenten når staten endres.
+Vi kan løse dette ved å innføre state i `<Comments>` og lage en `addComment`-funksjon som setter denne staten, som vi igjen sender med til `<CommentForm>`-komponenten som kan kalle denne funksjonen når vi legger til en kommentar. Istedenfor å rendre propsene `<Comments>` mottar direkte rendrer vi heller denne staten. Derfor, når `<CommentForm>` endrer staten til `<Commen ts>`, vil det trigge en re-render av `<Comments>` med oppdatert comments-array siden staten har endret seg. Ved bruk av hooks/useState trigges det nemlig en re-render av komponenten når staten endres.
 
 Comments.js:
 
