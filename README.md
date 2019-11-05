@@ -273,6 +273,8 @@ Dette kan man bruke til å sette sammen flere komponenter, og lage hierarkier, s
 I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
 
 ```js
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+
 function Timestamp(props) {
   return (
     <div className="timestamp">{formatDistanceToNow(props.timestamp)} ago</div>
@@ -280,7 +282,7 @@ function Timestamp(props) {
 }
 ```
 
-Her er det ikke veldig mye nytt. Vi kaller funksjonen `formatDistanceToNow` for å gjøre om et dato-objekt til en tekststreng.
+Her er det ikke veldig mye nytt. Vi importerer og kaller funksjonen `formatDistanceToNow` for å gjøre om et dato-objekt til en tekststreng som beskriver hvor lenge siden tidspunktet var.
 
 ```js
 function Author(props) {
@@ -384,6 +386,8 @@ function App() {
 Dette ser jo egentlig ganske ryddig ut! Neste vi må gjøre er å wrappe hele App-komponenten vår i en `<BrowserRouter />`-komponent.
 
 ```js
+import { BrowserRouter } from 'react-router-dom';
+
 function App() {
   return (
     <BrowserRouter>
@@ -399,6 +403,7 @@ function App() {
 Vi skal vise to forskjellige sider - en på url-en "/" (altså på rotnivå), og en på urlen "/post/1", "/post/2" osv, avhengig av IDen til bildet vi skal vise. Vi kaller hver av disse to URLene en rute - eller route på engelsk. For å vise en komponent hvis URLen "matcher" `"/"`, for eksempel - trenger vi å bruke en `<Route />`-komponent (også fra `react-router-dom`-pakken):
 
 ```js
+import { BrowserRouter, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
@@ -459,6 +464,8 @@ For at det skal være noe vits med slike ruter, trenger vi å lage noen lenker m
 Vi lager to lenker - logoen vår i `<Header />`-komponenten lenker til "/", og hvert bilde lenker til "/post/{iden-til-det-bildet}". Slik ser det ut:
 
 ```js
+import { Link } from 'react-router-dom';
+
 function Header(props) {
   return (
     <header className="site-header">
@@ -626,14 +633,14 @@ I oppgave 8 skal vi fokusere på å utføre forskjellige side-effekter. Side-eff
 
 Når man går inn på et bilde burde man oppdatere tittelen til websiden (det som står oppe i fanen).
 
-🏆 Bruk hooken `useEffect` til å oppdatere tittelen til å si "📷 av @brukernavn" når man går inn på en detaljside.
+🏆 Bruk hooken `React.useEffect` til å oppdatere tittelen til å si "📷 av @brukernavn" når man går inn på en detaljside.
 
 > 💡 Du kan sette sidetittelen med å endre `document.title`
 
 <details><summary>🚨 Løsningsforslag</summary>
 En side-effekt er noe som påvirker noe utenfor React-verdenen. Det kan være å kalle DOM-APIer, hente data eller noe helt annet. I dette tilfellet vil vi oppdatere dokument-tittelen - den tekststrengen som vises i nettleser-fanen.
 
-Vi bruker den innebygde hooken `useEffect` for å kjøre denne side-effekten inni komponenten vår. `useEffect` tar i mot en funksjon som skal utføre side-effektene for oss. Vi kan implementere det slik:
+Vi bruker den innebygde hooken `React.useEffect` for å kjøre denne side-effekten inni komponenten vår. `useEffect` tar i mot en funksjon som skal utføre side-effektene for oss. Vi kan implementere det slik:
 
 ```js
 React.useEffect(() => {
@@ -678,9 +685,9 @@ Oppgave 8A innførte en liten bug - når man returnerer til feed-siden (hovedsid
 
 > 💡 En custom hook er bare en helt vanlig funksjon som starter med `use`, og som kaller en eller flere hooks. Det er ikke noe mer magi!
 
-> 💡 Husker du `useParams` fra routingen i oppgave 6? Det er en custom hook det også!
+> 💡 Husker du `useParams` fra da vi satt opp routing i oppgave 6? Det er en custom hook det også!
 
-🏆 Bruk din første custom hook både på `DetailPage` og `FeedPage`.
+🏆 Bruk din første egenlagde custom hook både på `DetailPage` og `FeedPage`.
 
 <details><summary>🚨 Løsningsforslag</summary>
 Denne oppgaven er nesten bare copy paste.
@@ -713,10 +720,10 @@ export default useTitle;
 
 Med andre ord så lager vi en funksjon som kaller en hook. Dette er hva man kaller en custom hook.
 
-Vi kan nå endre koden vår i `DetailPage` til å kalle vår nye hook:
+Vi kan nå endre koden vår i `DetailPage` til å kalle den nye hooken vår:
 
 ```js
-import useTitle from '../hooks/useTitle';
+import useTitle from './useTitle';
 
 export default function DetailPage(props) {
   const image = images.find(
@@ -729,7 +736,7 @@ export default function DetailPage(props) {
 Vi kan også lett bruke samme funksjonalitet i `FeedPage`:
 
 ```js
-import useTitle from '../hooks/useTitle`;
+import useTitle from './useTitle`;
 
 export default function FeedPage(props) {
   useTitle(`Bekkstagram`);
@@ -779,12 +786,12 @@ Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjekte
 For å hente bildene lager vi en ny custom hook `useFeed` som kan implementeres slik:
 
 ```js
-import * as api from './server';
+import { getFeed } from './server';
 
 const useFeed = () => {
   const [images, setImages] = React.useState(null);
   React.useEffect(() => {
-    api.getFeed().then(data => setImages(data));
+    getFeed().then(data => setImages(data));
   }, []);
   return images;
 };
@@ -821,6 +828,8 @@ Hvis du vil så kan du implementere en spinner her også - men det lar vi være 
 På samme måte kan vi lage en custom hook som henter akkurat det bildet du klikker deg inn på. Her legger vi også til et dependency array basert på bilde ID'en, slik at 'useImage' som bruker 'getImage', kjører hvis ID'en endrer seg.
 
 ```js
+import { getImage } from './server';
+
 const useImage = id => {
   const [image, setImage] = React.useState(null);
   React.useEffect(() => {
@@ -902,9 +911,9 @@ import { Dialog } from '@reach/dialog';
 Dialog-komponenten har en del props, deriblant `isOpen` og `onDismiss`, som det er naturlig å styre med en state i `<AddImage>`-komponenten vår. Et par states til er også naturlig å ha for å lagre url'en og beskrivelsen som man etterhvert skriver inn i input-feltene:
 
 ```js
-const [showDialog, setShowDialog] = useState(false);
-const [imageUrl, setImageUrl] = useState('');
-const [imageDescription, setImageDescription] = useState('');
+const [showDialog, setShowDialog] = React.useState(false);
+const [imageUrl, setImageUrl] = React.useState('');
+const [imageDescription, setImageDescription] = React.useState('');
 ```
 
 `isOpen`-propen til Dialog kan da settes til `showDialog` og `onDismiss` kaller `setShowDialog(false)`.
@@ -922,11 +931,11 @@ Men da vil ikke feeden oppdatere seg automatisk. <FeedPage> vil oppdateres hvis 
 Endringene som da kan gjøres i `<FeedPage>`:
 
 ```js
-const [images, setImages] = useState(null);
+const [images, setImages] = React.useState(null);
 
 const imagesFromFeed = useFeed();
 
-useEffect(() => {
+React.useEffect(() => {
   setImages(imagesFromFeed);
 }, [imagesFromFeed]);
 
@@ -944,15 +953,15 @@ Samt legge til `<AddImage>`-komponenten helt nederst i `<FeedPage>`:
 Hele den nye `<AddImage>`-komponenten:
 
 ```js
-import React, { useState } from 'react';
+import React from 'react';
 import { uploadImage } from './server';
 import { FaCameraRetro } from 'react-icons/fa';
 import { Dialog } from '@reach/dialog';
 
 export const AddImage = props => {
-  const [showDialog, setShowDialog] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
-  const [imageDescription, setImageDescription] = useState('');
+  const [showDialog, setShowDialog] = React.useState(false);
+  const [imageUrl, setImageUrl] = React.useState('');
+  const [imageDescription, setImageDescription] = React.useState('');
 
   const addImage = async (url, description) => {
     const imageResponse = await uploadImage({
@@ -1119,8 +1128,10 @@ Vi bruker state til å lagre kommentaren man skriver i input-feltet som en stren
 En validering som ikke tillater å poste en kommentar med mindre man har skrevet noe i input-feltet er også lurt å inkludere.
 
 ```js
+import { putComment } from './server';
+
 export const CommentForm = props => {
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = React.useState('');
 
   async function onCommentSubmit() {
     if (comment.length === 0) {
@@ -1149,11 +1160,11 @@ Du legger kanskje merke til at du ikke får opp kommentaren du la til før du re
 
 Vi kan løse dette ved å innføre state i `<Comments>` og lage en `addComment`-funksjon som setter denne staten, som vi igjen sender med til `<CommentForm>`-komponenten som kan kalle denne funksjonen når vi legger til en kommentar. Istedenfor å rendre propsene `<Comments>` mottar direkte rendrer vi heller denne staten. Derfor, når `<CommentForm>` endrer staten til `<Commen ts>`, vil det trigge en re-render av `<Comments>` med oppdatert comments-array siden staten har endret seg. Ved bruk av hooks/useState trigges det nemlig en re-render av komponenten når staten endres.
 
-Comments.js:
+I `Comments.js`:
 
 ```js
 export const Comments = props => {
-  const [comments, setComments] = useState(props.comments);
+  const [comments, setComments] = React.useState(props.comments);
 
   const addComment = comment => {
     setComments(prevState => [...prevState, comment]);
