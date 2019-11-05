@@ -909,13 +909,15 @@ const [imageDescription, setImageDescription] = useState('');
 
 `isOpen`-propen til Dialog kan da settes til `showDialog` og `onDismiss` kaller `setShowDialog(false)`.
 
-Alt innholdet i dialogen sendes inn som children til Dialog-komponenten. Det som dialogen blant annet må inneholde er en knapp som fyrer avgårde et api-kall til backenden for å lagre bilde med url'en og beskrivelsen som er spesifisert. Dette kan man gjøre direkte, f. eks bare:
+Alt innholdet i dialogen sendes inn som `children` til `Dialog`-komponenten. Det som dialogen blant annet må inneholde er en knapp som fyrer avgårde et api-kall til backenden for å lagre bilde med url'en og beskrivelsen som er spesifisert. Dette kan man gjøre direkte, f. eks bare:
 
 ```js
-<button onClick={() => postImage(imageUrl, imageDescription)}>Publiser!</button>
+<button onClick={() => uploadImage(imageUrl, imageDescription)}>
+  Publiser!
+</button>
 ```
 
-Men da vil ikke feeden oppdatere seg automatisk. <FeedPage> vil oppdateres hvis staten oppdateres. Hvis vi dermed legger bildene i en state og lager en funksjon for å legge til et bilde til staten, kan vi sende denne funksjonen ned til `<AddImage>`-komponenten og kalle denne herfra etter å ha sendt bildet til backenden med api'et (`postImage`-metoden vil returnere det nye bilde-objektet som har blitt lagt til). Da vil staten til `<FeedPage>` oppdateres med det nye bildet og komponenten vil rendres på nytt med det nye bildet.
+Men da vil ikke feeden oppdatere seg automatisk. <FeedPage> vil oppdateres hvis staten oppdateres. Hvis vi dermed legger bildene i en state og lager en funksjon for å legge til et bilde til staten, kan vi sende denne funksjonen ned til `<AddImage>`-komponenten og kalle denne herfra etter å ha sendt bildet til backenden med api'et (`uploadImage`-metoden vil returnere det nye bilde-objektet som har blitt lagt til). Da vil staten til `<FeedPage>` oppdateres med det nye bildet og komponenten vil rendres på nytt med det nye bildet.
 
 Endringene som da kan gjøres i `<FeedPage>`:
 
@@ -943,7 +945,7 @@ Hele den nye `<AddImage>`-komponenten:
 
 ```js
 import React, { useState } from 'react';
-import { postImage } from './server';
+import { uploadImage } from './server';
 import { FaCameraRetro } from 'react-icons/fa';
 import { Dialog } from '@reach/dialog';
 
@@ -953,7 +955,7 @@ export const AddImage = props => {
   const [imageDescription, setImageDescription] = useState('');
 
   const addImage = async (imageUrl, imageDescription) => {
-    const imageResponse = await postImage(imageUrl, imageDescription);
+    const imageResponse = await uploadImage(imageUrl, imageDescription);
     if (!imageResponse) {
       return;
     }
