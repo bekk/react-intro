@@ -33,13 +33,17 @@ export const uploadImage = async ({ url, description }) => {
   if (!isValidUrl) {
     throw new Error("Image URL wasn't valid");
   }
-  return fetch(`${API_BASE_URL}/media`, {
+
+  const response = await fetch(`${API_BASE_URL}/media`, {
     method: 'POST',
     body: JSON.stringify({ url, description, username }),
     headers: {
       'Content-Type': 'application/json',
     },
   });
+
+  const { data } = await response.json();
+  return data;
 };
 
 export const putComment = async (imageId, comment) => {
@@ -54,6 +58,5 @@ export const putComment = async (imageId, comment) => {
   });
 
   const { data } = await response.json();
-
   return data;
 };
