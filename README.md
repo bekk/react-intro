@@ -51,7 +51,7 @@ function MinKomponent(props) {
 , eller med en annen syntaks for å lage funksjoner:
 
 ```js
-const MinKomponent = props => {
+const MinKomponent = (props) => {
   return <h1>Hei verden</h1>;
 };
 ```
@@ -59,8 +59,8 @@ const MinKomponent = props => {
 Synes du den HTML-lignende syntaksen er rar? Det er greit - den _er_ litt rar. Den heter JSX, og er en type XML som React bruker for å beskrive brukergrensesnitt. Man bruker et verktøy som heter [Babel](https://babeljs.io) til å gjøre det om til vanlig JavaScript. JSX er egentlig bare syntaktisk sukker for funksjonen `React.createElement`! Dette er samme komponent som over, i helt vanlig JavaScript:
 
 ```js
-const MinKomponent = props => {
-  return React.createElement('h1', {}, 'Hei verden');
+const MinKomponent = (props) => {
+  return React.createElement("h1", {}, "Hei verden");
 };
 ```
 
@@ -219,7 +219,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="images">
-        {images.map(image => (
+        {images.map((image) => (
           <Image key={image.id} src={image.url} alt={image.description} />
         ))}
       </div>
@@ -273,7 +273,7 @@ Dette kan man bruke til å sette sammen flere komponenter, og lage hierarkier, s
 I denne oppgaven skulle vi implementere tre komponenter. La oss ta en av gangen.
 
 ```js
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 function Timestamp(props) {
   return (
@@ -314,7 +314,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="images">
-        {images.map(image => (
+        {images.map((image) => (
           <Post
             key={image.id}
             author={image.username}
@@ -364,7 +364,7 @@ Vi starter med å refaktorere koden som lister ut bilder i en ny komponent - `<F
 function FeedPage() {
   return (
     <div className="images">
-      {images.map(image => (
+      {images.map((image) => (
         <Post author={image.username} timestamp={image.createdDate}>
           <Image key={image.id} src={image.url} alt={image.description} />
         </Post>
@@ -386,7 +386,7 @@ function App() {
 Dette ser jo egentlig ganske ryddig ut! Neste vi må gjøre er å wrappe hele App-komponenten vår i en `<BrowserRouter />`-komponent.
 
 ```js
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -403,7 +403,7 @@ function App() {
 Vi skal vise to forskjellige sider - en på url-en "/" (altså på rotnivå), og en på urlen "/post/1", "/post/2" osv, avhengig av IDen til bildet vi skal vise. Vi kaller hver av disse to URLene en rute - eller route på engelsk. For å vise en komponent hvis URLen "matcher" `"/"`, for eksempel - trenger vi å bruke en `<Route />`-komponent (også fra `react-router-dom`-pakken):
 
 ```js
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
@@ -443,10 +443,10 @@ function App() {
 `DetailPage` ser ganske lik ut som `FeedPage`, bare at den lister ut en enkel side:
 
 ```js
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 function DetailPage() {
   const { id } = useParams();
-  const image = images.find(image => image.id === id);
+  const image = images.find((image) => image.id === id);
   return (
     <div className="detail">
       <Post author={image.username} timestamp={image.createdDate}>
@@ -464,7 +464,7 @@ For at det skal være noe vits med slike ruter, trenger vi å lage noen lenker m
 Vi lager to lenker - logoen vår i `<Header />`-komponenten lenker til "/", og hvert bilde lenker til "/post/{iden-til-det-bildet}". Slik ser det ut:
 
 ```js
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Header(props) {
   return (
@@ -481,7 +481,7 @@ function Header(props) {
 function FeedPage(props) {
   return (
     <div className="posts">
-      {images.map(image => (
+      {images.map((image) => (
         <Post
           key={image.id}
           author={image.username}
@@ -600,7 +600,7 @@ function Likes(props) {
   }
   return (
     <div className="likes">
-      Likes: {likes}{' '}
+      Likes: {likes}{" "}
       <button className="like-button" onClick={incrementLikes}>
         👍
       </button>
@@ -613,7 +613,7 @@ Vi lager først en ny funksjon `incrementLikes`, som kaller `setLikes`-funksjone
 
 ```js
 function incrementLikes() {
-  setLikes(currentLikes => currentLikes + 1);
+  setLikes((currentLikes) => currentLikes + 1);
 }
 ```
 
@@ -644,7 +644,7 @@ Vi bruker den innebygde hooken `React.useEffect` for å kjøre denne side-effekt
 
 ```js
 React.useEffect(() => {
-  document.title = 'Min nye tittel';
+  document.title = "Min nye tittel";
 });
 ```
 
@@ -663,7 +663,7 @@ Sluttresultatet ser slik ut:
 ```js
 function DetailPage(props) {
   const { id } = useParams();
-  const image = images.find(image => image.id === id);
+  const image = images.find((image) => image.id === id);
   React.useEffect(() => {
     document.title = `📷 av ${image.username}`;
   });
@@ -695,7 +695,7 @@ Denne oppgaven er nesten bare copy paste.
 Vi lager en ny fil - `useTitle.js`, og fyller inn følgende:
 
 ```js
-import React from 'react';
+import React from "react";
 
 export default function useTitle(title) {
   React.useEffect(() => {
@@ -707,9 +707,9 @@ export default function useTitle(title) {
 Eller som pilfunksjon:
 
 ```js
-import React from 'react';
+import React from "react";
 
-const useTitle = title => {
+const useTitle = (title) => {
   React.useEffect(() => {
     document.title = title;
   });
@@ -786,12 +786,12 @@ Du kan kalle den asynkrone funksjonen `getFeed` fra `./server`-filen i prosjekte
 For å hente bildene lager vi en ny custom hook `useFeed` som kan implementeres slik:
 
 ```js
-import { getFeed } from './server';
+import { getFeed } from "./server";
 
 const useFeed = () => {
   const [images, setImages] = React.useState(null);
   React.useEffect(() => {
-    getFeed().then(data => setImages(data));
+    getFeed().then((data) => setImages(data));
   }, []);
   return images;
 };
@@ -828,12 +828,12 @@ Hvis du vil så kan du implementere en spinner her også - men det lar vi være 
 På samme måte kan vi lage en custom hook som henter akkurat det bildet du klikker deg inn på. Her legger vi også til et dependency array basert på bilde ID'en, slik at 'useImage' som bruker 'getImage', kjører hvis ID'en endrer seg.
 
 ```js
-import { getImage } from './server';
+import { getImage } from "./server";
 
-const useImage = id => {
+const useImage = (id) => {
   const [image, setImage] = React.useState(null);
   React.useEffect(() => {
-    getImage(id).then(data => setImage(data));
+    getImage(id).then((data) => setImage(data));
   }, [id]);
   return image;
 };
@@ -864,11 +864,11 @@ For å gjøre det enkelt, lar vi deg kun legge til bilder som allerede ligger p�
 > 💡 Funksjonen `uploadImage` tar imot et objekt som argument:
 >
 > ```js
-> import { uploadImage } from './server';
+> import { uploadImage } from "./server";
 > // ...
 > uploadImage({
->   url: 'https://placekitten.com/600/400',
->   description: 'A very cute kitten',
+>   url: "https://placekitten.com/600/400",
+>   description: "A very cute kitten",
 > });
 > ```
 
@@ -877,14 +877,14 @@ For å gjøre det enkelt, lar vi deg kun legge til bilder som allerede ligger p�
 > 💡 @reach/dialog er en ferdig installert pakke i dette prosjektet. Du finner dokumentasjonen til @reach/dialog på [hjemmesiden deres](https://ui.reach.tech/dialog/)
 >
 > ```js
-> import { Dialog } from '@reach/dialog';
-> import '@reach/dialog/styles.css';
+> import { Dialog } from "@reach/dialog";
+> import "@reach/dialog/styles.css";
 > ```
 
 > 💡 Importer et bildeikon av et kamera for å bruke som legg-til-bilde-knapp fra [react-icons](https://www.npmjs.com/package/react-icons), her et ikon fra [Font Awesome](https://fontawesome.com/icons?d=gallery&q=camera):
 >
 > ```js
-> import { FaCameraRetro } from 'react-icons/fa';
+> import { FaCameraRetro } from "react-icons/fa";
 > ```
 >
 > Du kan også legge på klassen "camera-button" på knappen din for å få den til å se pen ut, og dukke opp nede i hjørnet :)
@@ -899,21 +899,21 @@ Denne oppgaven kan nok løses på flere måter, men vi har valgt å implementere
 Selve knappen vi har brukt er bare et ikon av et kamera vi har hentet fra et ekstern bibliotek, og kan importeres (som en komponent) slik:
 
 ```js
-import { FaCameraRetro } from 'react-icons/fa';
+import { FaCameraRetro } from "react-icons/fa";
 ```
 
 Denne har en `onClick`-prop som vi kan bruke for å åpne dialogen vi vil skal dukke opp. Vi kan importere en veldig fin Dialog-komponent fra biblioteket "reach" slik:
 
 ```js
-import { Dialog } from '@reach/dialog';
+import { Dialog } from "@reach/dialog";
 ```
 
 Dialog-komponenten har en del props, deriblant `isOpen` og `onDismiss`, som det er naturlig å styre med en state i `<AddImage>`-komponenten vår. Et par states til er også naturlig å ha for å lagre url'en og beskrivelsen som man etterhvert skriver inn i input-feltene:
 
 ```js
 const [showDialog, setShowDialog] = React.useState(false);
-const [imageUrl, setImageUrl] = React.useState('');
-const [imageDescription, setImageDescription] = React.useState('');
+const [imageUrl, setImageUrl] = React.useState("");
+const [imageDescription, setImageDescription] = React.useState("");
 ```
 
 `isOpen`-propen til Dialog kan da settes til `showDialog` og `onDismiss` kaller `setShowDialog(false)`.
@@ -939,8 +939,8 @@ React.useEffect(() => {
   setImages(imagesFromFeed);
 }, [imagesFromFeed]);
 
-const onAddImage = image => {
-  setImages(prevImages => [...prevImages, image]);
+const onAddImage = (image) => {
+  setImages((prevImages) => [...prevImages, image]);
 };
 ```
 
@@ -1056,7 +1056,7 @@ På tide å legge til det morsomste med internett: kommentarfelt! Både mulighet
 > 💡 Funksjonen `putComment` tar imot to argumenter - bilde-iden kommentaren gjelder, og selve kommentaren:
 >
 > ```js
-> import { putComment } from './server';
+> import { putComment } from "./server";
 > // ...
 > putComment(imageId, comment);
 > ```
@@ -1085,7 +1085,7 @@ export const Comment = ({ comment }) => {
 Det kan være lurt å ha en "container"-komponent som innkapsler underkomponenter for bl.a. å ha en felles, overordnet styling på komponentene og gjøre det hele mer ryddig, i dette tilfellet ´Comments.js´. Denne tar inn hele arrayet med kommentarer som children, itererer over disse og rendrer `Comment` for hver av kommentarene. I tillegg rendrer den `CommentForm` som håndterer skriving av nye kommentarer.`Comment` skal kun rendres hvis det finnes noen kommentarer, `CommentForm` skal alltid rendres (scroll lengre ned for forslag til hvordan den kan implementeres).
 
 ```js
-export const Comments = props => {
+export const Comments = (props) => {
   if (props.comments) {
     return (
       <div className="comments">
@@ -1103,7 +1103,7 @@ export const Comments = props => {
 `Comments.js` kan vi rendre i `Post`-komponenten vår. Kommentarene har vi automatisk tilgang til etter at vi har hentet alle bildene med API'et, da hvert bildeobjekt har et `comments`-array. Vi sender også med bilde-id'en som en egen prop for senere å kunne hente kommentarene fra backenden hvis dette skulle endre seg (ved at noen legger til nye kommentarer).
 
 ```js
-const Post = props => {
+const Post = (props) => {
   return (
     <div className="post">
       <Author>{props.author}</Author>
@@ -1128,24 +1128,24 @@ Vi bruker state til å lagre kommentaren man skriver i input-feltet som en stren
 En validering som ikke tillater å poste en kommentar med mindre man har skrevet noe i input-feltet er også lurt å inkludere.
 
 ```js
-import { putComment } from './server';
+import { putComment } from "./server";
 
-export const CommentForm = props => {
-  const [comment, setComment] = React.useState('');
+export const CommentForm = (props) => {
+  const [comment, setComment] = React.useState("");
 
   async function onCommentSubmit() {
     if (comment.length === 0) {
       return;
     }
     await putComment(props.imageId, comment);
-    setComment('');
+    setComment("");
   }
 
   return (
     <div className="comment-form">
       <input
         value={comment}
-        onChange={event => setComment(event.target.value)}
+        onChange={(event) => setComment(event.target.value)}
         placeholder="Add a comment..."
       />
       <button className="comment-form-button" onClick={onCommentSubmit}>
@@ -1163,11 +1163,11 @@ Vi kan løse dette ved å innføre state i `<Comments>` og lage en `addComment`-
 I `Comments.js`:
 
 ```js
-export const Comments = props => {
+export const Comments = (props) => {
   const [comments, setComments] = React.useState(props.comments);
 
-  const addComment = comment => {
-    setComments(prevState => [...prevState, comment]);
+  const addComment = (comment) => {
+    setComments((prevState) => [...prevState, comment]);
   };
 
   if (comments) {
@@ -1177,7 +1177,7 @@ export const Comments = props => {
           <Comment key={key} comment={comment} />
         ))}
         <CommentForm
-          addComment={comment => addComment(comment)}
+          addComment={(comment) => addComment(comment)}
           imageId={props.imageId}
         />
       </div>
@@ -1194,7 +1194,7 @@ Endre `onCommentSubmit()` i `<CommentForm>` til.
 async function onCommentSubmit() {
   const commentsResponse = await putComment(props.imageId, comment);
   props.addComment(commentsResponse);
-  setComment('');
+  setComment("");
 }
 ```
 
@@ -1215,3 +1215,13 @@ Vi har laget et API som har støtte for mye rart. Ta en titt på [koden om du vi
 - List ut alle bildene til en bruker
 - Søk etter innhold basert på hashtags, beskrivelser, brukernavn osv
 - Legg til paginering (hent litt og litt bilder)
+
+Om du vil prøve deg på noe helt nytt, så har vi et par ideer du kan bryne deg på her:
+
+- **Lag din egen todo-liste!** Det er kanskje et utbrukt eksempel, men det er en fin måte å lære seg React på. Legg til støtte for å legge til todos, si at du er ferdig med dem, og filtrer ut både ferdige og gjenstående gjøremål.
+- **Lag din egen PokeDex!** Om du fortsatt er glad i Pokemon, så kan du jo bruke [PokeAPI](https://pokeapi.co/) som datakilde, og lage din helt egne PokeDex! Legg til støtte for å liste ut alle pokemons, og å se detaljer om en spesifikk en.
+- **Lær deg litt om animasjon i React!** Vi har laget en animasjonsworkshop også, der du lærer å bruke animasjonsrammeverket Framer Motion. Den finner du [her](https://github.com/bekk/react-animation-workshop)
+- **Prøv deg på TypeScript!** TypeScript er en måte å bringe statisk typesikkerhet til React-koden din. Vi har selvfølgelig laget en workshop her også, som du finner [her](https://github.com/bekk/typet-javascript-workshop)
+- [Front-end Mentor](https://www.frontendmentor.io/challenges) er en fin side å finne prosjekter du kan implementere. Der får du et ferdig design, og en spec på en oppgave
+
+Lykke til!
