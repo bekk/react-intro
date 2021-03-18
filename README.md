@@ -218,7 +218,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="images">
+      <div className="posts">
         {images.map((image) => (
           <Image key={image.id} src={image.url} alt={image.description} />
         ))}
@@ -313,7 +313,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="images">
+      <div className="posts">
         {images.map((image) => (
           <Post
             key={image.id}
@@ -363,7 +363,7 @@ Vi starter med å refaktorere koden som lister ut bilder i en ny komponent - `<F
 ```js
 function FeedPage() {
   return (
-    <div className="images">
+    <div className="posts">
       {images.map((image) => (
         <Post author={image.username} timestamp={image.createdDate}>
           <Image key={image.id} src={image.url} alt={image.description} />
