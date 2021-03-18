@@ -588,7 +588,7 @@ function Likes(props) {
 }
 ```
 
-Dette får den første testen vår til å kjøre. Når vi ser på websiden, ser vi at det står "Likes: 0"
+Når vi ser på websiden, ser vi at det står "Likes: 0"
 
 Del to av oppgaven består i å lage en knapp man kan trykke på, og som legger til en til antall likes.
 
