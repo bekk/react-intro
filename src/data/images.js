@@ -1,7 +1,7 @@
 const DAY = 1000 * 60 * 60 * 24;
 // Dette er arrayet du skal liste ut
 // Det inneholder bilder på formatet
-// { id: 1, urL: 'http://url.com', description: 'alt-tekst' }
+// { id: 1, url: 'http://url.com', description: 'alt-tekst' }
 const images = [
   {
     id: '1',
