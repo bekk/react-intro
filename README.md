@@ -894,7 +894,7 @@ For å gjøre det enkelt, lar vi deg kun legge til bilder som allerede ligger p�
 🏆 Sørg for at bildefeeden refresher seg og oppdateres med det nye bildet etter at det har blitt lagt til.
 
 <details><summary>🚨 Løsningsforslag</summary>
-Denne oppgaven kan nok løses på flere måter, men vi har valgt å implementere en knapp som åpner en modal/dialog med to input-felter hvor man kan skrive inn en bildeurl og en beskrivelse. Det meste er laget i en ny `<AddImage>`-komponent.
+Denne oppgaven kan nok løses på flere måter, men vi har valgt å implementere en knapp som åpner en modal/dialog med to input-felter hvor man kan skrive inn en bildeurl og en beskrivelse. Det meste er laget i en ny `AddImage`-komponent.
 
 Selve knappen vi har brukt er bare et ikon av et kamera vi har hentet fra et ekstern bibliotek, og kan importeres (som en komponent) slik:
 
@@ -908,7 +908,7 @@ Denne har en `onClick`-prop som vi kan bruke for å åpne dialogen vi vil skal d
 import { Dialog } from "@reach/dialog";
 ```
 
-Dialog-komponenten har en del props, deriblant `isOpen` og `onDismiss`, som det er naturlig å styre med en state i `<AddImage>`-komponenten vår. Et par states til er også naturlig å ha for å lagre url'en og beskrivelsen som man etterhvert skriver inn i input-feltene:
+Dialog-komponenten har en del props, deriblant `isOpen` og `onDismiss`, som det er naturlig å styre med en state i `AddImage`-komponenten vår. Et par states til er også naturlig å ha for å lagre url'en og beskrivelsen som man etterhvert skriver inn i input-feltene:
 
 ```js
 const [showDialog, setShowDialog] = React.useState(false);
