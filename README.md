@@ -967,7 +967,7 @@ export const AddImage = props => {
   const addImage = async (url, description) => {
     const imageResponse = await uploadImage({
       url,
-      description;
+      description,
     });
     if (!imageResponse) {
       return;
