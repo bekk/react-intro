@@ -24,7 +24,7 @@ Det finnes utrolig mye god introduksjonslektyre om React allerede, og hvis du al
 - [React Tutorial For Beginners](https://egghead.io/courses/the-beginner-s-guide-to-react)-kurset til Kent C. Dodds er en strålende introduksjon til hvordan React fungerer, og forklarer hva React faktisk gjør på en veldig enkel og grei måte.
 - [Den offisielle tutorialen](https://reactjs.org/tutorial/tutorial.html) til React er også en veldig lærerik opplevelse.
 
-[Slidesene fra workshop-introduksjonen finner du her](https://slides.com/markusra/react-intro/fullscreen)
+[Slidesene fra workshop-introduksjonen finner du her](https://slides.com/markusra/introduksjon-til-react/fullscreen)
 
 ### React på 2 minutter
 
